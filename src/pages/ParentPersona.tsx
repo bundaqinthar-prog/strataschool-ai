@@ -7,19 +7,19 @@ export default function ParentPersona() {
 
   const handleSubmit = (data: SchoolProfile) => {
     generate(
-      `You are an education marketing persona specialist for Indonesian schools. Create detailed, realistic parent personas. Use markdown.`,
-      `Create target parent personas for:\n\nSchool: ${data.schoolName}\nCity: ${data.city}\nLevel: ${data.educationLevel}\nStudents: ${data.studentCount}\nTarget Parents: ${data.targetParents}\nTuition: ${data.tuitionRange}\nUnique Programs: ${data.uniquePrograms}\n\nCreate 3 detailed parent personas including:\n1. **Demographics** - Age, gender, location, family size\n2. **Profession & Income** - Career, income level\n3. **Education Priorities** - What they value most\n4. **Concerns About Schooling** - Fears, worries, objections\n5. **Preferred Communication Channels** - How they consume info\n6. **Decision-Making Process** - How they choose a school\n7. **Marketing Message That Resonates** - What would attract them\n\nMake personas realistic for the Indonesian context in ${data.city}.`
+      `Anda adalah spesialis persona marketing pendidikan untuk sekolah Indonesia. Buat persona orang tua yang detail dan realistis. Tulis dalam Bahasa Indonesia dengan format markdown.`,
+      `Buat persona target orang tua untuk:\n\nSekolah: ${data.schoolName}\nKota: ${data.city}\nJenjang: ${data.educationLevel}\nJumlah Siswa: ${data.studentCount}\nTarget Orang Tua: ${data.targetParents}\nKisaran SPP: ${data.tuitionRange}\nProgram Unggulan: ${data.uniquePrograms}\n\nBuat 3 persona orang tua yang detail termasuk:\n1. **Demografi** - Usia, jenis kelamin, lokasi, jumlah keluarga\n2. **Profesi & Penghasilan** - Karir, tingkat penghasilan\n3. **Prioritas Pendidikan** - Apa yang paling mereka hargai\n4. **Kekhawatiran tentang Sekolah** - Ketakutan, kekhawatiran, keberatan\n5. **Saluran Komunikasi Pilihan** - Bagaimana mereka mengonsumsi informasi\n6. **Proses Pengambilan Keputusan** - Bagaimana mereka memilih sekolah\n7. **Pesan Marketing yang Beresonansi** - Apa yang akan menarik mereka\n\nBuat persona yang realistis untuk konteks Indonesia di ${data.city}.`
     );
   };
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Parent Persona Generator</h1>
-        <p className="text-muted-foreground mt-1">Create detailed target parent personas</p>
+        <h1 className="text-3xl font-bold">Persona Orang Tua</h1>
+        <p className="text-muted-foreground mt-1">Buat profil detail target orang tua siswa</p>
       </div>
-      <SchoolProfileForm title="School Profile" description="Enter details to generate parent personas" onSubmit={handleSubmit} isLoading={isLoading} />
-      <ReportDisplay title="Parent Personas" content={report} isLoading={isLoading} />
+      <SchoolProfileForm title="Profil Sekolah" description="Masukkan detail untuk membuat persona orang tua" onSubmit={handleSubmit} isLoading={isLoading} />
+      <ReportDisplay title="Persona Orang Tua" content={report} isLoading={isLoading} />
     </div>
   );
 }

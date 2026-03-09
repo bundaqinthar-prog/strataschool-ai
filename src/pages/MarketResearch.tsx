@@ -7,24 +7,24 @@ export default function MarketResearch() {
 
   const handleSubmit = (data: SchoolProfile) => {
     generate(
-      `You are an expert education market researcher specializing in the Indonesian education market. Provide detailed, data-informed analysis. Write in professional English with markdown formatting.`,
-      `Analyze the market for this school:\n\nSchool: ${data.schoolName}\nCity: ${data.city}\nLevel: ${data.educationLevel}\nStudents: ${data.studentCount}\nTarget Parents: ${data.targetParents}\nTuition: ${data.tuitionRange}\nUnique Programs: ${data.uniquePrograms}\n\nProvide:\n1. **Local Market Opportunity** - Market size, growth potential in ${data.city}\n2. **Parent Demand Insights** - What parents want, priorities, decision factors\n3. **Education Trends** - Relevant trends in Indonesian education\n4. **Growth Potential** - Specific opportunities for enrollment growth\n5. **Strategic Recommendations** - Actionable next steps`
+      `Anda adalah peneliti pasar pendidikan ahli yang berspesialisasi di pasar pendidikan Indonesia. Berikan analisis yang detail dan berbasis data. Tulis dalam Bahasa Indonesia yang profesional dengan format markdown.`,
+      `Analisis pasar untuk sekolah ini:\n\nSekolah: ${data.schoolName}\nKota: ${data.city}\nJenjang: ${data.educationLevel}\nJumlah Siswa: ${data.studentCount}\nTarget Orang Tua: ${data.targetParents}\nKisaran SPP: ${data.tuitionRange}\nProgram Unggulan: ${data.uniquePrograms}\n\nBerikan:\n1. **Peluang Pasar Lokal** - Ukuran pasar, potensi pertumbuhan di ${data.city}\n2. **Insight Permintaan Orang Tua** - Apa yang diinginkan orang tua, prioritas, faktor keputusan\n3. **Tren Pendidikan** - Tren relevan dalam pendidikan Indonesia\n4. **Potensi Pertumbuhan** - Peluang spesifik untuk pertumbuhan pendaftaran\n5. **Rekomendasi Strategis** - Langkah-langkah aksi yang dapat ditindaklanjuti`
     );
   };
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Market Research</h1>
-        <p className="text-muted-foreground mt-1">Analyze your local education market and parent demand</p>
+        <h1 className="text-3xl font-bold">Riset Pasar</h1>
+        <p className="text-muted-foreground mt-1">Analisis pasar pendidikan lokal dan permintaan orang tua</p>
       </div>
       <SchoolProfileForm
-        title="School Profile"
-        description="Enter your school details to generate market research"
+        title="Profil Sekolah"
+        description="Masukkan detail sekolah Anda untuk menghasilkan riset pasar"
         onSubmit={handleSubmit}
         isLoading={isLoading}
       />
-      <ReportDisplay title="Market Research Report" content={report} isLoading={isLoading} />
+      <ReportDisplay title="Laporan Riset Pasar" content={report} isLoading={isLoading} />
     </div>
   );
 }

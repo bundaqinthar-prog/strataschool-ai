@@ -33,8 +33,8 @@ export default function MarketingAudit() {
       .join("\n");
 
     generate(
-      `You are an expert school marketing consultant specializing in the Indonesian education market (TK, SD, SMP, SMA). Analyze marketing audit results and provide actionable insights. Write in a professional, consultative tone. Structure your response with clear sections using markdown headers.`,
-      `Here are the marketing audit results for a school:\n\nTotal Score: ${result.totalPercentage}% (${result.level})\n\nScores by aspect:\n${scoresSummary}\n\nPlease provide a detailed marketing audit report including:\n1. **Executive Summary** - Overall assessment\n2. **Marketing Strengths** - What the school does well\n3. **Marketing Weaknesses** - Areas needing improvement\n4. **Growth Opportunities** - Untapped potential\n5. **Specific Recommendations** - Actionable steps prioritized by impact\n\nFocus on practical, actionable advice relevant to Indonesian school marketing.`
+      `Anda adalah konsultan marketing sekolah ahli yang berspesialisasi di pasar pendidikan Indonesia (TK, SD, SMP, SMA). Analisis hasil audit marketing dan berikan insight yang dapat ditindaklanjuti. Tulis dalam Bahasa Indonesia yang profesional. Gunakan format markdown dengan header yang jelas.`,
+      `Berikut hasil audit marketing sekolah:\n\nSkor Total: ${result.totalPercentage}% (${result.level})\n\nSkor per aspek:\n${scoresSummary}\n\nBerikan laporan audit marketing yang detail termasuk:\n1. **Ringkasan Eksekutif** - Penilaian keseluruhan\n2. **Kekuatan Marketing** - Apa yang sudah dilakukan dengan baik\n3. **Kelemahan Marketing** - Area yang perlu diperbaiki\n4. **Peluang Pertumbuhan** - Potensi yang belum dimanfaatkan\n5. **Rekomendasi Spesifik** - Langkah-langkah aksi yang diprioritaskan berdasarkan dampak\n\nFokus pada saran praktis dan dapat diterapkan untuk marketing sekolah di Indonesia.`
     );
   };
 
@@ -42,14 +42,14 @@ export default function MarketingAudit() {
     return (
       <div className="max-w-4xl mx-auto space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Marketing Audit Results</h1>
-          <p className="text-muted-foreground mt-1">Your school marketing performance analysis</p>
+          <h1 className="text-3xl font-bold">Hasil Audit Marketing</h1>
+          <p className="text-muted-foreground mt-1">Analisis performa marketing sekolah Anda</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-muted-foreground">Total Score</CardTitle>
+              <CardTitle className="text-sm text-muted-foreground">Skor Total</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-4xl font-bold text-primary">{scores.totalPercentage}%</div>
@@ -58,11 +58,11 @@ export default function MarketingAudit() {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-muted-foreground">Performance Level</CardTitle>
+              <CardTitle className="text-sm text-muted-foreground">Level Performa</CardTitle>
             </CardHeader>
             <CardContent>
               <div className={`text-3xl font-bold ${
-                scores.level === "Strong" ? "text-secondary" : scores.level === "Average" ? "text-yellow-500" : "text-destructive"
+                scores.level === "Kuat" ? "text-secondary" : scores.level === "Cukup" ? "text-yellow-500" : "text-destructive"
               }`}>
                 {scores.level}
               </div>
@@ -70,7 +70,7 @@ export default function MarketingAudit() {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-muted-foreground">Raw Score</CardTitle>
+              <CardTitle className="text-sm text-muted-foreground">Skor Mentah</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold">{scores.totalScore}/{scores.totalMax}</div>
@@ -81,7 +81,7 @@ export default function MarketingAudit() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5" /> Score by Aspect
+              <BarChart3 className="h-5 w-5" /> Skor per Aspek
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -97,10 +97,10 @@ export default function MarketingAudit() {
           </CardContent>
         </Card>
 
-        <ReportDisplay title="AI Marketing Audit Report" content={report} isLoading={isLoading} />
+        <ReportDisplay title="Laporan Audit Marketing AI" content={report} isLoading={isLoading} />
 
         <Button variant="outline" onClick={() => { setScores(null); setCurrentStep(0); setAnswers({}); }}>
-          Start New Audit
+          Mulai Audit Baru
         </Button>
       </div>
     );
@@ -109,22 +109,20 @@ export default function MarketingAudit() {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Marketing Audit</h1>
+        <h1 className="text-3xl font-bold">Audit Marketing</h1>
         <p className="text-muted-foreground mt-1">
-          Answer 60 questions to evaluate your school's marketing performance
+          Jawab 60 pertanyaan untuk mengevaluasi performa marketing sekolah Anda
         </p>
       </div>
 
-      {/* Progress */}
       <div>
         <div className="flex justify-between text-sm mb-2">
-          <span className="font-medium">{answeredCount} of {totalQuestions} answered</span>
-          <span className="text-muted-foreground">Step {currentStep + 1} of {auditAspects.length}</span>
+          <span className="font-medium">{answeredCount} dari {totalQuestions} terjawab</span>
+          <span className="text-muted-foreground">Langkah {currentStep + 1} dari {auditAspects.length}</span>
         </div>
         <Progress value={(answeredCount / totalQuestions) * 100} className="h-2" />
       </div>
 
-      {/* Step tabs */}
       <div className="flex gap-1 overflow-x-auto pb-2">
         {auditAspects.map((a, i) => {
           const answered = a.questions.filter((q) => answers[q.id] !== undefined).length;
@@ -146,7 +144,6 @@ export default function MarketingAudit() {
         })}
       </div>
 
-      {/* Questions */}
       <Card>
         <CardHeader>
           <CardTitle>{aspect.icon} {aspect.title}</CardTitle>
@@ -179,22 +176,21 @@ export default function MarketingAudit() {
         </CardContent>
       </Card>
 
-      {/* Navigation */}
       <div className="flex justify-between">
         <Button
           variant="outline"
           onClick={() => setCurrentStep((p) => p - 1)}
           disabled={currentStep === 0}
         >
-          <ChevronLeft className="h-4 w-4 mr-1" /> Previous
+          <ChevronLeft className="h-4 w-4 mr-1" /> Sebelumnya
         </Button>
         {currentStep < auditAspects.length - 1 ? (
           <Button onClick={() => setCurrentStep((p) => p + 1)} disabled={!allCurrentAnswered}>
-            Next <ChevronRight className="h-4 w-4 ml-1" />
+            Selanjutnya <ChevronRight className="h-4 w-4 ml-1" />
           </Button>
         ) : (
           <Button onClick={handleSubmit} disabled={answeredCount < totalQuestions}>
-            Submit Audit
+            Kirim Audit
           </Button>
         )}
       </div>

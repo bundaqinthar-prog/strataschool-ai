@@ -14,7 +14,7 @@ export function ReportDisplay({ title, content, isLoading }: ReportDisplayProps)
 
   const handleCopy = () => {
     navigator.clipboard.writeText(content);
-    toast({ title: "Copied!", description: "Report copied to clipboard." });
+    toast({ title: "Berhasil disalin!", description: "Laporan telah disalin ke clipboard." });
   };
 
   const handleDownload = () => {
@@ -22,7 +22,7 @@ export function ReportDisplay({ title, content, isLoading }: ReportDisplayProps)
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `${title.toLowerCase().replace(/\s+/g, "-")}-report.md`;
+    a.download = `${title.toLowerCase().replace(/\s+/g, "-")}-laporan.md`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -36,10 +36,10 @@ export function ReportDisplay({ title, content, isLoading }: ReportDisplayProps)
         {content && (
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={handleCopy}>
-              <Copy className="h-4 w-4 mr-1" /> Copy
+              <Copy className="h-4 w-4 mr-1" /> Salin
             </Button>
             <Button variant="outline" size="sm" onClick={handleDownload}>
-              <Download className="h-4 w-4 mr-1" /> Download
+              <Download className="h-4 w-4 mr-1" /> Unduh
             </Button>
           </div>
         )}
@@ -48,7 +48,7 @@ export function ReportDisplay({ title, content, isLoading }: ReportDisplayProps)
         {isLoading && !content && (
           <div className="flex items-center gap-2 text-muted-foreground">
             <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-            Generating report...
+            Sedang membuat laporan...
           </div>
         )}
         <div className="prose prose-sm max-w-none whitespace-pre-wrap text-foreground">

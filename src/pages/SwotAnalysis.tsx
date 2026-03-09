@@ -7,19 +7,19 @@ export default function SwotAnalysis() {
 
   const handleSubmit = (data: SchoolProfile) => {
     generate(
-      `You are a strategic planning consultant for Indonesian schools. Create thorough SWOT analyses. Use markdown with clear sections.`,
-      `Generate a SWOT analysis for:\n\nSchool: ${data.schoolName}\nCity: ${data.city}\nLevel: ${data.educationLevel}\nStudents: ${data.studentCount}\nTarget Parents: ${data.targetParents}\nTuition: ${data.tuitionRange}\nUnique Programs: ${data.uniquePrograms}\n\nProvide:\n1. **Strengths** - Internal advantages (5-8 items with explanations)\n2. **Weaknesses** - Internal challenges (5-8 items with explanations)\n3. **Opportunities** - External possibilities (5-8 items with explanations)\n4. **Threats** - External risks (5-8 items with explanations)\n5. **Strategic Priorities** - Top 5 actions based on the SWOT\n6. **SWOT Matrix** - Cross-analysis (SO, WO, ST, WT strategies)`
+      `Anda adalah konsultan perencanaan strategis untuk sekolah Indonesia. Buat analisis SWOT yang menyeluruh. Tulis dalam Bahasa Indonesia dengan format markdown dan bagian yang jelas.`,
+      `Buat analisis SWOT untuk:\n\nSekolah: ${data.schoolName}\nKota: ${data.city}\nJenjang: ${data.educationLevel}\nJumlah Siswa: ${data.studentCount}\nTarget Orang Tua: ${data.targetParents}\nKisaran SPP: ${data.tuitionRange}\nProgram Unggulan: ${data.uniquePrograms}\n\nBerikan:\n1. **Kekuatan (Strengths)** - Keunggulan internal (5-8 item dengan penjelasan)\n2. **Kelemahan (Weaknesses)** - Tantangan internal (5-8 item dengan penjelasan)\n3. **Peluang (Opportunities)** - Kemungkinan eksternal (5-8 item dengan penjelasan)\n4. **Ancaman (Threats)** - Risiko eksternal (5-8 item dengan penjelasan)\n5. **Prioritas Strategis** - 5 aksi teratas berdasarkan SWOT\n6. **Matriks SWOT** - Analisis silang (strategi SO, WO, ST, WT)`
     );
   };
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">SWOT Analysis</h1>
-        <p className="text-muted-foreground mt-1">Generate a comprehensive SWOT analysis for your school</p>
+        <h1 className="text-3xl font-bold">Analisis SWOT</h1>
+        <p className="text-muted-foreground mt-1">Buat analisis SWOT komprehensif untuk sekolah Anda</p>
       </div>
-      <SchoolProfileForm title="School Profile" description="Enter details to generate SWOT analysis" onSubmit={handleSubmit} isLoading={isLoading} />
-      <ReportDisplay title="SWOT Analysis Report" content={report} isLoading={isLoading} />
+      <SchoolProfileForm title="Profil Sekolah" description="Masukkan detail untuk membuat analisis SWOT" onSubmit={handleSubmit} isLoading={isLoading} />
+      <ReportDisplay title="Laporan Analisis SWOT" content={report} isLoading={isLoading} />
     </div>
   );
 }

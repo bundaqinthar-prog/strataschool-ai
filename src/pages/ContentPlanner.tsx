@@ -7,19 +7,19 @@ export default function ContentPlanner() {
 
   const handleSubmit = (data: SchoolProfile) => {
     generate(
-      `You are a social media content strategist for schools in Indonesia. Create engaging, practical content plans. Use markdown with tables where appropriate.`,
-      `Create a 30-day social media content plan for:\n\nSchool: ${data.schoolName}\nCity: ${data.city}\nLevel: ${data.educationLevel}\nTarget Parents: ${data.targetParents}\nUnique Programs: ${data.uniquePrograms}\nTarget Audience: ${data.targetAudience || data.targetParents}\nKey Themes: ${data.keyThemes || "Academic excellence, school life, parent education"}\n\nProvide:\n1. **Content Strategy Overview** - Goals and themes\n2. **30-Day Content Calendar** - Day-by-day plan with post type, platform, caption ideas\n3. **Post Ideas** - 15+ creative post ideas\n4. **Video Content Ideas** - 10 video concepts (Reels/TikTok/YouTube)\n5. **Educational Content for Parents** - 10 informative content ideas\n6. **Best Practices** - Posting times, hashtags, engagement tips for Indonesian audience`
+      `Anda adalah ahli strategi konten media sosial untuk sekolah di Indonesia. Buat rencana konten yang menarik dan praktis. Tulis dalam Bahasa Indonesia dengan format markdown dan tabel jika sesuai.`,
+      `Buat rencana konten media sosial 30 hari untuk:\n\nSekolah: ${data.schoolName}\nKota: ${data.city}\nJenjang: ${data.educationLevel}\nTarget Orang Tua: ${data.targetParents}\nProgram Unggulan: ${data.uniquePrograms}\nTarget Audiens: ${data.targetAudience || data.targetParents}\nTema Utama: ${data.keyThemes || "Keunggulan akademik, kehidupan sekolah, edukasi orang tua"}\n\nBerikan:\n1. **Ringkasan Strategi Konten** - Tujuan dan tema\n2. **Kalender Konten 30 Hari** - Rencana harian dengan jenis posting, platform, ide caption\n3. **Ide Posting** - 15+ ide posting kreatif\n4. **Ide Konten Video** - 10 konsep video (Reels/TikTok/YouTube)\n5. **Konten Edukatif untuk Orang Tua** - 10 ide konten informatif\n6. **Tips & Praktik Terbaik** - Waktu posting, hashtag, tips engagement untuk audiens Indonesia`
     );
   };
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">Social Media Content Planner</h1>
-        <p className="text-muted-foreground mt-1">Generate a 30-day social media content plan</p>
+        <h1 className="text-3xl font-bold">Perencana Konten Media Sosial</h1>
+        <p className="text-muted-foreground mt-1">Buat rencana konten media sosial 30 hari</p>
       </div>
-      <SchoolProfileForm title="Content Plan Details" description="Enter school info and content preferences" onSubmit={handleSubmit} isLoading={isLoading} extraFields={["targetAudience", "keyThemes"]} />
-      <ReportDisplay title="30-Day Content Plan" content={report} isLoading={isLoading} />
+      <SchoolProfileForm title="Detail Rencana Konten" description="Masukkan info sekolah dan preferensi konten" onSubmit={handleSubmit} isLoading={isLoading} extraFields={["targetAudience", "keyThemes"]} />
+      <ReportDisplay title="Rencana Konten 30 Hari" content={report} isLoading={isLoading} />
     </div>
   );
 }
