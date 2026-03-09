@@ -24,7 +24,7 @@ export function useAIReport() {
       },
       onError: (error) => {
         setIsLoading(false);
-        toast({ title: "Error", description: error, variant: "destructive" });
+        toast({ title: "Kesalahan", description: error, variant: "destructive" });
       },
     });
   }, [toast]);

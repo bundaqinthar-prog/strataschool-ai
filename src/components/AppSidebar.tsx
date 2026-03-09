@@ -26,15 +26,15 @@ import {
 } from "@/components/ui/sidebar";
 
 const tools = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
-  { title: "Marketing Audit", url: "/audit", icon: ClipboardCheck },
-  { title: "Market Research", url: "/research", icon: Search },
-  { title: "School Positioning", url: "/positioning", icon: Target },
-  { title: "Competitor Analysis", url: "/competitors", icon: Users },
-  { title: "Growth Strategy", url: "/growth", icon: TrendingUp },
-  { title: "Content Planner", url: "/content", icon: Calendar },
-  { title: "Parent Persona", url: "/persona", icon: UserCircle },
-  { title: "SWOT Analysis", url: "/swot", icon: Shield },
+  { title: "Dasbor", url: "/", icon: LayoutDashboard },
+  { title: "Audit Marketing", url: "/audit", icon: ClipboardCheck },
+  { title: "Riset Pasar", url: "/research", icon: Search },
+  { title: "Positioning Sekolah", url: "/positioning", icon: Target },
+  { title: "Analisis Kompetitor", url: "/competitors", icon: Users },
+  { title: "Strategi Pertumbuhan", url: "/growth", icon: TrendingUp },
+  { title: "Perencana Konten", url: "/content", icon: Calendar },
+  { title: "Persona Orang Tua", url: "/persona", icon: UserCircle },
+  { title: "Analisis SWOT", url: "/swot", icon: Shield },
 ];
 
 export function AppSidebar() {

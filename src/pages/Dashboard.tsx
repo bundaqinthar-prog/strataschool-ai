@@ -13,14 +13,14 @@ import {
 } from "lucide-react";
 
 const tools = [
-  { title: "Marketing Audit", description: "Evaluate your school's marketing strategy with 60 questions", icon: ClipboardCheck, url: "/audit", color: "bg-primary/10 text-primary" },
-  { title: "Market Research", description: "Analyze local market opportunities and parent demand", icon: Search, url: "/research", color: "bg-secondary/10 text-secondary" },
-  { title: "School Positioning", description: "Find your unique selling proposition and brand positioning", icon: Target, url: "/positioning", color: "bg-accent text-accent-foreground" },
-  { title: "Competitor Analysis", description: "Analyze competitive landscape and find opportunities", icon: Users, url: "/competitors", color: "bg-primary/10 text-primary" },
-  { title: "Growth Strategy", description: "Generate strategies to increase student enrollment", icon: TrendingUp, url: "/growth", color: "bg-secondary/10 text-secondary" },
-  { title: "Content Planner", description: "Get a 30-day social media content plan", icon: Calendar, url: "/content", color: "bg-accent text-accent-foreground" },
-  { title: "Parent Persona", description: "Create detailed target parent personas", icon: UserCircle, url: "/persona", color: "bg-primary/10 text-primary" },
-  { title: "SWOT Analysis", description: "Generate a comprehensive SWOT analysis", icon: Shield, url: "/swot", color: "bg-secondary/10 text-secondary" },
+  { title: "Audit Marketing", description: "Evaluasi strategi marketing sekolah Anda dengan 60 pertanyaan", icon: ClipboardCheck, url: "/audit", color: "bg-primary/10 text-primary" },
+  { title: "Riset Pasar", description: "Analisis peluang pasar lokal dan permintaan orang tua", icon: Search, url: "/research", color: "bg-secondary/10 text-secondary" },
+  { title: "Positioning Sekolah", description: "Temukan proposisi nilai unik dan positioning brand sekolah", icon: Target, url: "/positioning", color: "bg-accent text-accent-foreground" },
+  { title: "Analisis Kompetitor", description: "Analisis lanskap persaingan dan temukan peluang", icon: Users, url: "/competitors", color: "bg-primary/10 text-primary" },
+  { title: "Strategi Pertumbuhan", description: "Buat strategi untuk meningkatkan pendaftaran siswa", icon: TrendingUp, url: "/growth", color: "bg-secondary/10 text-secondary" },
+  { title: "Perencana Konten", description: "Dapatkan rencana konten media sosial 30 hari", icon: Calendar, url: "/content", color: "bg-accent text-accent-foreground" },
+  { title: "Persona Orang Tua", description: "Buat profil detail target orang tua siswa", icon: UserCircle, url: "/persona", color: "bg-primary/10 text-primary" },
+  { title: "Analisis SWOT", description: "Buat analisis SWOT komprehensif untuk sekolah", icon: Shield, url: "/swot", color: "bg-secondary/10 text-secondary" },
 ];
 
 export default function Dashboard() {
@@ -29,47 +29,45 @@ export default function Dashboard() {
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
       <div>
-        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <h1 className="text-3xl font-bold">Dasbor</h1>
         <p className="text-muted-foreground mt-1">
-          Welcome to SchoolGrowth AI — your AI-powered marketing consultant
+          Selamat datang di SchoolGrowth AI — konsultan marketing sekolah berbasis AI
         </p>
       </div>
 
-      {/* Marketing Score Summary */}
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>Marketing Score</CardDescription>
+            <CardDescription>Skor Marketing</CardDescription>
             <CardTitle className="text-4xl font-bold text-primary">—</CardTitle>
           </CardHeader>
           <CardContent>
             <Progress value={0} className="h-2" />
-            <p className="text-xs text-muted-foreground mt-2">Complete the Marketing Audit to see your score</p>
+            <p className="text-xs text-muted-foreground mt-2">Selesaikan Audit Marketing untuk melihat skor Anda</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>Performance Level</CardDescription>
-            <CardTitle className="text-2xl">Not assessed</CardTitle>
+            <CardDescription>Level Performa</CardDescription>
+            <CardTitle className="text-2xl">Belum dinilai</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-xs text-muted-foreground">Run the audit to get your performance level</p>
+            <p className="text-xs text-muted-foreground">Jalankan audit untuk mendapatkan level performa</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>Reports Generated</CardDescription>
+            <CardDescription>Laporan Dihasilkan</CardDescription>
             <CardTitle className="text-4xl font-bold">0</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-xs text-muted-foreground">Start using the tools below to generate reports</p>
+            <p className="text-xs text-muted-foreground">Mulai gunakan alat di bawah untuk menghasilkan laporan</p>
           </CardContent>
         </Card>
       </div>
 
-      {/* Tools Grid */}
       <div>
-        <h2 className="text-xl font-semibold mb-4">AI Tools</h2>
+        <h2 className="text-xl font-semibold mb-4">Alat AI</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {tools.map((tool) => (
             <Card

@@ -61,69 +61,69 @@ export function SchoolProfileForm({ title, description, onSubmit, isLoading, ext
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
-              <Label>School Name</Label>
+              <Label>Nama Sekolah</Label>
               <Input value={form.schoolName} onChange={(e) => update("schoolName", e.target.value)} required />
             </div>
             <div className="space-y-2">
-              <Label>City</Label>
+              <Label>Kota</Label>
               <Input value={form.city} onChange={(e) => update("city", e.target.value)} required />
             </div>
             <div className="space-y-2">
-              <Label>Education Level</Label>
+              <Label>Jenjang Pendidikan</Label>
               <Select value={form.educationLevel} onValueChange={(v) => update("educationLevel", v)}>
-                <SelectTrigger><SelectValue placeholder="Select level" /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder="Pilih jenjang" /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="TK">TK (Kindergarten)</SelectItem>
-                  <SelectItem value="SD">SD (Elementary)</SelectItem>
-                  <SelectItem value="SMP">SMP (Middle School)</SelectItem>
-                  <SelectItem value="SMA">SMA (High School)</SelectItem>
-                  <SelectItem value="Multiple">Multiple Levels</SelectItem>
+                  <SelectItem value="TK">TK (Taman Kanak-Kanak)</SelectItem>
+                  <SelectItem value="SD">SD (Sekolah Dasar)</SelectItem>
+                  <SelectItem value="SMP">SMP (Sekolah Menengah Pertama)</SelectItem>
+                  <SelectItem value="SMA">SMA (Sekolah Menengah Atas)</SelectItem>
+                  <SelectItem value="Multiple">Multi Jenjang</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>Number of Students</Label>
+              <Label>Jumlah Siswa</Label>
               <Input type="number" value={form.studentCount} onChange={(e) => update("studentCount", e.target.value)} required />
             </div>
             <div className="space-y-2">
-              <Label>Target Parents</Label>
-              <Input value={form.targetParents} onChange={(e) => update("targetParents", e.target.value)} placeholder="e.g., Middle-class professionals" required />
+              <Label>Target Orang Tua</Label>
+              <Input value={form.targetParents} onChange={(e) => update("targetParents", e.target.value)} placeholder="cth: Profesional kelas menengah" required />
             </div>
             <div className="space-y-2">
-              <Label>Tuition Fee Range</Label>
-              <Input value={form.tuitionRange} onChange={(e) => update("tuitionRange", e.target.value)} placeholder="e.g., Rp 5-10 juta/year" required />
+              <Label>Kisaran Biaya SPP</Label>
+              <Input value={form.tuitionRange} onChange={(e) => update("tuitionRange", e.target.value)} placeholder="cth: Rp 5-10 juta/tahun" required />
             </div>
           </div>
           <div className="space-y-2">
-            <Label>Unique Programs</Label>
-            <Textarea value={form.uniquePrograms} onChange={(e) => update("uniquePrograms", e.target.value)} placeholder="e.g., Bilingual program, STEM focus, Islamic values..." required />
+            <Label>Program Unggulan</Label>
+            <Textarea value={form.uniquePrograms} onChange={(e) => update("uniquePrograms", e.target.value)} placeholder="cth: Program bilingual, fokus STEM, nilai-nilai Islami..." required />
           </div>
           {extraFields.includes("competitors") && (
             <div className="space-y-2">
-              <Label>Known Competitors</Label>
-              <Textarea value={form.competitors} onChange={(e) => update("competitors", e.target.value)} placeholder="List competitor schools and what you know about them..." />
+              <Label>Kompetitor yang Diketahui</Label>
+              <Textarea value={form.competitors} onChange={(e) => update("competitors", e.target.value)} placeholder="Sebutkan sekolah kompetitor dan informasi yang Anda ketahui..." />
             </div>
           )}
           {extraFields.includes("currentEnrollment") && (
             <div className="space-y-2">
-              <Label>Current Enrollment Challenges</Label>
-              <Textarea value={form.currentEnrollment} onChange={(e) => update("currentEnrollment", e.target.value)} placeholder="Describe current enrollment situation..." />
+              <Label>Tantangan Pendaftaran Saat Ini</Label>
+              <Textarea value={form.currentEnrollment} onChange={(e) => update("currentEnrollment", e.target.value)} placeholder="Jelaskan situasi pendaftaran saat ini..." />
             </div>
           )}
           {extraFields.includes("targetAudience") && (
             <div className="space-y-2">
-              <Label>Target Audience Details</Label>
-              <Textarea value={form.targetAudience} onChange={(e) => update("targetAudience", e.target.value)} placeholder="Describe your ideal parent audience..." />
+              <Label>Detail Target Audiens</Label>
+              <Textarea value={form.targetAudience} onChange={(e) => update("targetAudience", e.target.value)} placeholder="Jelaskan profil orang tua yang ideal..." />
             </div>
           )}
           {extraFields.includes("keyThemes") && (
             <div className="space-y-2">
-              <Label>Key Content Themes</Label>
-              <Textarea value={form.keyThemes} onChange={(e) => update("keyThemes", e.target.value)} placeholder="e.g., Academic excellence, student activities, parent tips..." />
+              <Label>Tema Konten Utama</Label>
+              <Textarea value={form.keyThemes} onChange={(e) => update("keyThemes", e.target.value)} placeholder="cth: Keunggulan akademik, kegiatan siswa, tips parenting..." />
             </div>
           )}
           <Button type="submit" disabled={isLoading} className="w-full">
-            {isLoading ? "Generating..." : "Generate AI Report"}
+            {isLoading ? "Sedang membuat..." : "Buat Laporan AI"}
           </Button>
         </form>
       </CardContent>
