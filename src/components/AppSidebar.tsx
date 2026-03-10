@@ -43,6 +43,7 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
+  const { signOut, profile } = useAuth();
 
   return (
     <Sidebar collapsible="icon">
@@ -83,6 +84,21 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <div className="mt-auto border-t border-sidebar-border p-3">
+        {!collapsed && profile && (
+          <p className="text-xs text-sidebar-foreground/60 mb-2 truncate px-2">
+            {profile.email}
+          </p>
+        )}
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton onClick={signOut} className="hover:bg-sidebar-accent text-sidebar-foreground/80">
+              <LogOut className="mr-2 h-4 w-4" />
+              {!collapsed && <span>Keluar</span>}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </div>
     </Sidebar>
   );
 }
