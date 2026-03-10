@@ -1,0 +1,4 @@
+project_id = "gwxvqfxkkrlggkmvaoej"
+
+[functions.school-ai]
+verify_jwt = false
