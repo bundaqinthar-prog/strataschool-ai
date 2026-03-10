@@ -2,3 +2,6 @@ project_id = "gwxvqfxkkrlggkmvaoej"
 
 [functions.school-ai]
 verify_jwt = false
+
+[functions.admin-api]
+verify_jwt = false
