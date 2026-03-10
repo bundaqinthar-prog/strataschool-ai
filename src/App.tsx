@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { AdminRoute } from "@/components/AdminRoute";
 import { AppLayout } from "@/components/AppLayout";
 import Dashboard from "@/pages/Dashboard";
 import MarketingAudit from "@/pages/MarketingAudit";
@@ -17,6 +18,8 @@ import ParentPersona from "@/pages/ParentPersona";
 import SwotAnalysis from "@/pages/SwotAnalysis";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
+import AdminLogin from "@/pages/AdminLogin";
+import AdminDashboard from "@/pages/AdminDashboard";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,12 +32,19 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
+            {/* Public */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+
+            {/* Admin */}
+            <Route path="/admin" element={
+              <AdminRoute><AdminDashboard /></AdminRoute>
+            } />
+
+            {/* Protected user routes */}
             <Route element={
-              <ProtectedRoute>
-                <AppLayout />
-              </ProtectedRoute>
+              <ProtectedRoute><AppLayout /></ProtectedRoute>
             }>
               <Route path="/" element={<Dashboard />} />
               <Route path="/audit" element={<MarketingAudit />} />
@@ -46,6 +56,7 @@ const App = () => (
               <Route path="/persona" element={<ParentPersona />} />
               <Route path="/swot" element={<SwotAnalysis />} />
             </Route>
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
