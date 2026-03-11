@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_reports: {
+        Row: {
+          academic_year: string
+          ai_report_result: string
+          created_at: string
+          feature_used: string
+          id: string
+          input_data: Json
+          school_name: string
+          score: Json | null
+          user_id: string
+        }
+        Insert: {
+          academic_year: string
+          ai_report_result?: string
+          created_at?: string
+          feature_used: string
+          id?: string
+          input_data?: Json
+          school_name?: string
+          score?: Json | null
+          user_id: string
+        }
+        Update: {
+          academic_year?: string
+          ai_report_result?: string
+          created_at?: string
+          feature_used?: string
+          id?: string
+          input_data?: Json
+          school_name?: string
+          score?: Json | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string

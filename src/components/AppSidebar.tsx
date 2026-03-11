@@ -1,30 +1,15 @@
 import {
-  LayoutDashboard,
-  ClipboardCheck,
-  Search,
-  Target,
-  Users,
-  TrendingUp,
-  Calendar,
-  UserCircle,
-  Shield,
-  GraduationCap,
-  LogOut,
+  LayoutDashboard, ClipboardCheck, Search, Target, Users,
+  TrendingUp, Calendar, UserCircle, Shield, GraduationCap,
+  LogOut, History,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarHeader,
-  useSidebar,
+  Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent,
+  SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem,
+  SidebarHeader, useSidebar,
 } from "@/components/ui/sidebar";
 
 const tools = [
@@ -37,6 +22,7 @@ const tools = [
   { title: "Perencana Konten", url: "/content", icon: Calendar },
   { title: "Persona Orang Tua", url: "/persona", icon: UserCircle },
   { title: "Analisis SWOT", url: "/swot", icon: Shield },
+  { title: "Riwayat Laporan", url: "/history", icon: History },
 ];
 
 export function AppSidebar() {
