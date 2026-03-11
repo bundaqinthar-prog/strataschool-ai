@@ -8,6 +8,7 @@ interface SaveOptions {
   featureUsed: string;
   academicYear: string;
   schoolName: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inputData: Record<string, unknown>;
   score?: Record<string, unknown> | null;
 }
