@@ -1,14 +1,22 @@
 import { SchoolProfileForm, SchoolProfile } from "@/components/SchoolProfileForm";
 import { ReportDisplay } from "@/components/ReportDisplay";
 import { useAIReport } from "@/hooks/useAIReport";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function GrowthStrategy() {
   const { report, isLoading, generate } = useAIReport();
+  const { profile } = useAuth();
 
   const handleSubmit = (data: SchoolProfile) => {
     generate(
       `Anda adalah ahli strategi pertumbuhan pendaftaran sekolah yang berspesialisasi di sekolah-sekolah Indonesia. Berikan strategi pertumbuhan yang kreatif dan praktis. Tulis dalam Bahasa Indonesia dengan format markdown.`,
-      `Buat strategi pertumbuhan pendaftaran untuk:\n\nSekolah: ${data.schoolName}\nKota: ${data.city}\nJenjang: ${data.educationLevel}\nJumlah Siswa: ${data.studentCount}\nTarget Orang Tua: ${data.targetParents}\nKisaran SPP: ${data.tuitionRange}\nProgram Unggulan: ${data.uniquePrograms}\nTantangan Saat Ini: ${data.currentEnrollment || "Tidak disebutkan"}\n\nBerikan:\n1. **Strategi Promosi** - Kampanye dan taktik marketing\n2. **Keterlibatan Komunitas** - Ide keterlibatan komunitas lokal\n3. **Acara Sekolah** - Acara yang menarik calon orang tua\n4. **Kemitraan** - Peluang kemitraan strategis\n5. **Strategi Referral** - Program word-of-mouth dan referral\n6. **Timeline Implementasi** - Rencana aksi 90 hari`
+      `Buat strategi pertumbuhan pendaftaran untuk:\n\nSekolah: ${data.schoolName}\nKota: ${data.city}\nJenjang: ${data.educationLevel}\nJumlah Siswa: ${data.studentCount}\nTarget Orang Tua: ${data.targetParents}\nKisaran SPP: ${data.tuitionRange}\nProgram Unggulan: ${data.uniquePrograms}\nTantangan Saat Ini: ${data.currentEnrollment || "Tidak disebutkan"}\nTahun Ajaran: ${data.academicYear}\n\nBerikan:\n1. **Strategi Promosi** - Kampanye dan taktik marketing\n2. **Keterlibatan Komunitas** - Ide keterlibatan komunitas lokal\n3. **Acara Sekolah** - Acara yang menarik calon orang tua\n4. **Kemitraan** - Peluang kemitraan strategis\n5. **Strategi Referral** - Program word-of-mouth dan referral\n6. **Timeline Implementasi** - Rencana aksi 90 hari`,
+      {
+        featureUsed: "Strategi Pertumbuhan",
+        academicYear: data.academicYear,
+        schoolName: data.schoolName,
+        inputData: data,
+      }
     );
   };
 
@@ -19,7 +27,12 @@ export default function GrowthStrategy() {
         <p className="text-muted-foreground mt-1">Buat strategi untuk meningkatkan pendaftaran siswa</p>
       </div>
       <SchoolProfileForm title="Profil Sekolah" description="Masukkan detail untuk membuat strategi pertumbuhan" onSubmit={handleSubmit} isLoading={isLoading} extraFields={["currentEnrollment"]} />
-      <ReportDisplay title="Laporan Strategi Pertumbuhan" content={report} isLoading={isLoading} />
+      <ReportDisplay
+        title="Laporan Strategi Pertumbuhan"
+        content={report}
+        isLoading={isLoading}
+        pdfMeta={report ? { schoolName: profile?.school_name || "", featureName: "Strategi Pertumbuhan", academicYear: "" } : undefined}
+      />
     </div>
   );
 }

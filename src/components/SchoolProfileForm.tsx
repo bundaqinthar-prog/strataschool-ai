@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AcademicYearSelector } from "@/components/AcademicYearSelector";
 
 export interface SchoolProfile {
   schoolName: string;
@@ -18,6 +19,7 @@ export interface SchoolProfile {
   currentEnrollment?: string;
   targetAudience?: string;
   keyThemes?: string;
+  academicYear: string;
 }
 
 interface SchoolProfileFormProps {
@@ -41,6 +43,7 @@ export function SchoolProfileForm({ title, description, onSubmit, isLoading, ext
     currentEnrollment: "",
     targetAudience: "",
     keyThemes: "",
+    academicYear: "",
   });
 
   const update = (key: keyof SchoolProfile, value: string) =>
@@ -48,6 +51,7 @@ export function SchoolProfileForm({ title, description, onSubmit, isLoading, ext
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.academicYear) return;
     onSubmit(form);
   };
 
@@ -59,6 +63,7 @@ export function SchoolProfileForm({ title, description, onSubmit, isLoading, ext
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <AcademicYearSelector value={form.academicYear} onChange={(v) => update("academicYear", v)} />
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label>Nama Sekolah</Label>
@@ -122,7 +127,7 @@ export function SchoolProfileForm({ title, description, onSubmit, isLoading, ext
               <Textarea value={form.keyThemes} onChange={(e) => update("keyThemes", e.target.value)} placeholder="cth: Keunggulan akademik, kegiatan siswa, tips parenting..." />
             </div>
           )}
-          <Button type="submit" disabled={isLoading} className="w-full">
+          <Button type="submit" disabled={isLoading || !form.academicYear} className="w-full">
             {isLoading ? "Sedang membuat..." : "Buat Laporan AI"}
           </Button>
         </form>
