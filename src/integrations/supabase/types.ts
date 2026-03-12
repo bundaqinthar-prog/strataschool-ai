@@ -56,6 +56,7 @@ export type Database = {
           email: string
           full_name: string
           id: string
+          jabatan: string
           school_name: string
           status: Database["public"]["Enums"]["approval_status"]
           updated_at: string
@@ -65,6 +66,7 @@ export type Database = {
           email?: string
           full_name?: string
           id: string
+          jabatan?: string
           school_name?: string
           status?: Database["public"]["Enums"]["approval_status"]
           updated_at?: string
@@ -74,6 +76,7 @@ export type Database = {
           email?: string
           full_name?: string
           id?: string
+          jabatan?: string
           school_name?: string
           status?: Database["public"]["Enums"]["approval_status"]
           updated_at?: string
