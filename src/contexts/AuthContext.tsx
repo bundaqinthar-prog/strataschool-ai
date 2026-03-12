@@ -8,6 +8,7 @@ interface Profile {
   id: string;
   full_name: string;
   school_name: string;
+  jabatan: string;
   email: string;
   status: ApprovalStatus;
 }
