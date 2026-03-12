@@ -58,6 +58,7 @@ const App = () => (
               <Route path="/persona" element={<ParentPersona />} />
               <Route path="/swot" element={<SwotAnalysis />} />
               <Route path="/history" element={<ReportHistory />} />
+              <Route path="/profile" element={<SchoolProfile />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />

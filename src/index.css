@@ -108,3 +108,37 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 }
+
+/* Print styles for audit report */
+@media print {
+  /* Hide navigation and interactive elements */
+  nav, .print\\:hidden,
+  [data-sidebar], header, .sidebar-trigger,
+  button:not(.print-visible) {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+  }
+
+  .audit-report {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Prevent page breaks inside cards and charts */
+  .rounded-xl, .rounded-lg, [class*="Card"],
+  .recharts-wrapper {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Show signature block */
+  .print\\:block {
+    display: block !important;
+  }
+}

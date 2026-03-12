@@ -1,7 +1,7 @@
 import {
   LayoutDashboard, ClipboardCheck, Search, Target, Users,
   TrendingUp, Calendar, UserCircle, Shield, GraduationCap,
-  LogOut, History,
+  LogOut, History, Building2,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { NavLink } from "@/components/NavLink";
@@ -23,6 +23,7 @@ const tools = [
   { title: "Persona Orang Tua", url: "/persona", icon: UserCircle },
   { title: "Analisis SWOT", url: "/swot", icon: Shield },
   { title: "Riwayat Laporan", url: "/history", icon: History },
+  { title: "Profil Sekolah", url: "/profile", icon: Building2 },
 ];
 
 export function AppSidebar() {
