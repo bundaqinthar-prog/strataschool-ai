@@ -17,6 +17,7 @@ import ContentPlanner from "@/pages/ContentPlanner";
 import ParentPersona from "@/pages/ParentPersona";
 import SwotAnalysis from "@/pages/SwotAnalysis";
 import ReportHistory from "@/pages/ReportHistory";
+import SchoolProfile from "@/pages/SchoolProfile";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import AdminLogin from "@/pages/AdminLogin";
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/persona" element={<ParentPersona />} />
               <Route path="/swot" element={<SwotAnalysis />} />
               <Route path="/history" element={<ReportHistory />} />
+              <Route path="/profile" element={<SchoolProfile />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />

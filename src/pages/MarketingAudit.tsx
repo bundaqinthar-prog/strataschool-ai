@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { ReportDisplay } from "@/components/ReportDisplay";
 import { AcademicYearSelector } from "@/components/AcademicYearSelector";
+import { AuditReportView } from "@/components/AuditReportView";
 import { useAIReport } from "@/hooks/useAIReport";
 import { useAuth } from "@/contexts/AuthContext";
 import { auditAspects, ratingLabels, calculateScores } from "@/lib/audit-questions";
-import { ChevronLeft, ChevronRight, BarChart3 } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function MarketingAudit() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -37,8 +37,10 @@ export default function MarketingAudit() {
       .join("\n");
 
     generate(
-      `Anda adalah konsultan marketing sekolah ahli yang berspesialisasi di pasar pendidikan Indonesia (TK, SD, SMP, SMA). Analisis hasil audit marketing dan berikan insight yang dapat ditindaklanjuti. Tulis dalam Bahasa Indonesia yang profesional. Gunakan format markdown dengan header yang jelas.`,
-      `Berikut hasil audit marketing sekolah:\n\nTahun Ajaran: ${academicYear}\nSkor Total: ${result.totalPercentage}% (${result.level})\nRata-rata: ${result.totalAverage}/5\n\nSkor per kategori:\n${scoresSummary}\n\nBerikan laporan audit marketing yang detail termasuk:\n1. **Ringkasan Eksekutif** - Penilaian keseluruhan\n2. **Kekuatan Marketing** - Apa yang sudah dilakukan dengan baik\n3. **Kelemahan Marketing** - Area yang perlu diperbaiki\n4. **Peluang Pertumbuhan** - Potensi yang belum dimanfaatkan\n5. **Rekomendasi Spesifik** - Langkah-langkah aksi yang diprioritaskan berdasarkan dampak\n\nFokus pada saran praktis dan dapat diterapkan untuk marketing sekolah di Indonesia.`,
+      `Anda adalah konsultan marketing sekolah ahli yang berspesialisasi di pasar pendidikan Indonesia (TK, SD, SMP, SMA). Analisis hasil audit marketing dan berikan insight yang dapat ditindaklanjuti. Tulis dalam Bahasa Indonesia yang profesional. Gunakan format markdown dengan header yang jelas.
+
+PENTING: Di akhir laporan, sertakan bagian "## Rencana Aksi 30 Hari" dengan sub-bagian "### Minggu 1", "### Minggu 2", "### Minggu 3", "### Minggu 4". Setiap minggu berisi daftar aksi dengan format "- Aksi item".`,
+      `Berikut hasil audit marketing sekolah:\n\nSekolah: ${profile?.school_name || "Unknown"}\nTahun Ajaran: ${academicYear}\nSkor Total: ${result.totalPercentage}% (${result.level})\nRata-rata: ${result.totalAverage}/5\n\nSkor per kategori:\n${scoresSummary}\n\nBerikan laporan audit marketing yang detail termasuk:\n1. **Ringkasan Eksekutif** - Penilaian keseluruhan\n2. **Kekuatan Marketing** - Apa yang sudah dilakukan dengan baik\n3. **Kelemahan Marketing** - Area yang perlu diperbaiki\n4. **Peluang Pertumbuhan** - Potensi yang belum dimanfaatkan\n5. **Rekomendasi Spesifik** - Langkah-langkah aksi yang diprioritaskan berdasarkan dampak\n6. **Rencana Aksi 30 Hari** - Rencana aksi mingguan (Minggu 1 s/d Minggu 4) dengan langkah konkret\n\nFokus pada saran praktis dan dapat diterapkan untuk marketing sekolah di Indonesia.`,
       {
         featureUsed: "Marketing Audit",
         academicYear,
@@ -49,89 +51,24 @@ export default function MarketingAudit() {
     );
   };
 
+  const handleReset = () => {
+    setScores(null);
+    setCurrentStep(0);
+    setAnswers({});
+    setAcademicYear("");
+  };
+
   if (scores) {
     return (
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold">Hasil Audit Marketing</h1>
-          <p className="text-muted-foreground mt-1">Tahun Ajaran {academicYear} — Analisis performa marketing sekolah Anda</p>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-4">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-muted-foreground">Skor Total</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-4xl font-bold text-primary">{scores.totalPercentage}%</div>
-              <Progress value={scores.totalPercentage} className="mt-2 h-2" />
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-muted-foreground">Level Performa</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className={`text-3xl font-bold ${
-                scores.level === "Kuat" ? "text-secondary" : scores.level === "Cukup" ? "text-yellow-500" : "text-destructive"
-              }`}>
-                {scores.level}
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-muted-foreground">Rata-rata</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold">{scores.totalAverage}/5</div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm text-muted-foreground">Skor Mentah</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold">{scores.totalScore}/{scores.totalMax}</div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5" /> Skor per Kategori
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {scores.aspectScores.map((a) => (
-              <div key={a.id}>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className="font-medium">{a.title}</span>
-                  <span className="text-muted-foreground">{a.percentage}% (avg: {a.average})</span>
-                </div>
-                <Progress value={a.percentage} className="h-2" />
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-
-        <ReportDisplay
-          title="Laporan Audit Marketing AI"
-          content={report}
-          isLoading={isLoading}
-          pdfMeta={{
-            schoolName: profile?.school_name || "Sekolah",
-            featureName: "Audit Marketing",
-            academicYear,
-            scores,
-          }}
-        />
-
-        <Button variant="outline" onClick={() => { setScores(null); setCurrentStep(0); setAnswers({}); setAcademicYear(""); }}>
-          Mulai Audit Baru
-        </Button>
-      </div>
+      <AuditReportView
+        scores={scores}
+        report={report}
+        isLoading={isLoading}
+        academicYear={academicYear}
+        schoolName={profile?.school_name || "Sekolah"}
+        evaluatorName={profile?.full_name || "—"}
+        onReset={handleReset}
+      />
     );
   }
 
@@ -187,7 +124,7 @@ export default function MarketingAudit() {
             })}
           </div>
 
-        <Card>
+          <Card>
             <CardHeader>
               <CardTitle>{aspect.icon} {aspect.title}</CardTitle>
               <p className="text-sm text-muted-foreground mt-1">{aspect.desc}</p>
@@ -221,11 +158,7 @@ export default function MarketingAudit() {
           </Card>
 
           <div className="flex justify-between">
-            <Button
-              variant="outline"
-              onClick={() => setCurrentStep((p) => p - 1)}
-              disabled={currentStep === 0}
-            >
+            <Button variant="outline" onClick={() => setCurrentStep((p) => p - 1)} disabled={currentStep === 0}>
               <ChevronLeft className="h-4 w-4 mr-1" /> Sebelumnya
             </Button>
             {currentStep < auditAspects.length - 1 ? (
