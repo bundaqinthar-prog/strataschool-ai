@@ -17,6 +17,7 @@ import ContentPlanner from "@/pages/ContentPlanner";
 import ParentPersona from "@/pages/ParentPersona";
 import SwotAnalysis from "@/pages/SwotAnalysis";
 import ReportHistory from "@/pages/ReportHistory";
+import SchoolProfile from "@/pages/SchoolProfile";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import AdminLogin from "@/pages/AdminLogin";
