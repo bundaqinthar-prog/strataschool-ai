@@ -22,6 +22,7 @@ const tools = [
   { title: "Perencana Konten", url: "/content", icon: Calendar },
   { title: "Persona Orang Tua", url: "/persona", icon: UserCircle },
   { title: "Analisis SWOT", url: "/swot", icon: Shield },
+  { title: "Arsitek Konsep AI", url: "/concept", icon: Compass },
   { title: "Riwayat Laporan", url: "/history", icon: History },
   { title: "Profil Sekolah", url: "/profile", icon: Building2 },
 ];

@@ -58,6 +58,7 @@ const App = () => (
               <Route path="/content" element={<ContentPlanner />} />
               <Route path="/persona" element={<ParentPersona />} />
               <Route path="/swot" element={<SwotAnalysis />} />
+              <Route path="/concept" element={<ConceptBuilder />} />
               <Route path="/history" element={<ReportHistory />} />
               <Route path="/profile" element={<SchoolProfile />} />
             </Route>
