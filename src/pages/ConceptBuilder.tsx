@@ -57,7 +57,7 @@ const initialForm: FormData = {
 export default function ConceptBuilder() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [showResult, setShowResult] = useState(false);
-  const { report, isLoading, generate, setReport, savedId } = useAIReport();
+  const { report, isLoading, generate, setReport } = useAIReport();
   const { profile } = useAuth();
 
   const isValid =
