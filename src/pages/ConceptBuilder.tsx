@@ -236,7 +236,7 @@ Tolong sintesakan konsep sekolah ini secara strategis dan berikan rencana aksi y
         ) : report ? (
           <Card>
             <CardContent className="pt-6 prose prose-sm max-w-none">
-              <ReportDisplay content={report} />
+              <ReportDisplay title="Blueprint Konsep Sekolah" content={report} />
             </CardContent>
           </Card>
         ) : null}
