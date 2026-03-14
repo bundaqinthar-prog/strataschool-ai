@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { AcademicYearSelector } from "@/components/AcademicYearSelector";
 import { useAIReport } from "@/hooks/useAIReport";
 import { useAuth } from "@/contexts/AuthContext";
-import { Loader2, ArrowLeft, Printer, Save, Lightbulb, Target, Dna, BookOpen, Cog } from "lucide-react";
+import { Loader2, ArrowLeft, Printer, Lightbulb, Target, Dna, BookOpen, Cog } from "lucide-react";
 import { ReportDisplay } from "@/components/ReportDisplay";
 
 const DEMOGRAPHICS = ["Menengah Bawah", "Menengah", "Menengah Atas", "Ekspatriat"];
