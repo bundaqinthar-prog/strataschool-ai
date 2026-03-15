@@ -60,6 +60,7 @@ const App = () => (
               <Route path="/persona" element={<ParentPersona />} />
               <Route path="/swot" element={<SwotAnalysis />} />
               <Route path="/concept" element={<ConceptBuilder />} />
+              <Route path="/copywriter" element={<CopywriterAI />} />
               <Route path="/history" element={<ReportHistory />} />
               <Route path="/profile" element={<SchoolProfile />} />
             </Route>
