@@ -19,6 +19,7 @@ import SwotAnalysis from "@/pages/SwotAnalysis";
 import ReportHistory from "@/pages/ReportHistory";
 import SchoolProfile from "@/pages/SchoolProfile";
 import ConceptBuilder from "@/pages/ConceptBuilder";
+import CopywriterAI from "@/pages/CopywriterAI";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import AdminLogin from "@/pages/AdminLogin";
