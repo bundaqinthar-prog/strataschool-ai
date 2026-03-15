@@ -295,7 +295,7 @@ Transformasi kalimat di atas dari Lapisan 1 (bahasa katalog) menjadi Lapisan 3 (
                 </div>
               </CardHeader>
               <CardContent className="pt-6">
-                <ReportDisplay content={report} />
+                <ReportDisplay title="Hasil Transformasi Copywriting" content={report} />
               </CardContent>
             </Card>
           )}
