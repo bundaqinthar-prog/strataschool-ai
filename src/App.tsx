@@ -20,6 +20,7 @@ import ReportHistory from "@/pages/ReportHistory";
 import SchoolProfile from "@/pages/SchoolProfile";
 import ConceptBuilder from "@/pages/ConceptBuilder";
 import CopywriterAI from "@/pages/CopywriterAI";
+import VisionDiagnosis from "@/pages/VisionDiagnosis";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import AdminLogin from "@/pages/AdminLogin";
@@ -61,6 +62,7 @@ const App = () => (
               <Route path="/swot" element={<SwotAnalysis />} />
               <Route path="/concept" element={<ConceptBuilder />} />
               <Route path="/copywriter" element={<CopywriterAI />} />
+              <Route path="/vision-diagnosis" element={<VisionDiagnosis />} />
               <Route path="/history" element={<ReportHistory />} />
               <Route path="/profile" element={<SchoolProfile />} />
             </Route>
