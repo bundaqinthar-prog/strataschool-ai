@@ -21,6 +21,7 @@ import SchoolProfile from "@/pages/SchoolProfile";
 import ConceptBuilder from "@/pages/ConceptBuilder";
 import CopywriterAI from "@/pages/CopywriterAI";
 import VisionDiagnosis from "@/pages/VisionDiagnosis";
+import JatiDiri from "@/pages/JatiDiri";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import AdminLogin from "@/pages/AdminLogin";
