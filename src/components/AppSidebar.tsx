@@ -1,7 +1,7 @@
 import {
   LayoutDashboard, ClipboardCheck, Search, Target, Users,
   TrendingUp, Calendar, UserCircle, Shield, GraduationCap,
-  LogOut, History, Building2, Compass, PenTool, Eye,
+  LogOut, History, Building2, Compass, PenTool, Eye, Fingerprint,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { NavLink } from "@/components/NavLink";
@@ -25,6 +25,7 @@ const tools = [
   { title: "Arsitek Konsep AI", url: "/concept", icon: Compass },
   { title: "Copywriter AI", url: "/copywriter", icon: PenTool },
   { title: "Diagnosis Visi", url: "/vision-diagnosis", icon: Eye },
+  { title: "Jati Diri Generator", url: "/jati-diri", icon: Fingerprint },
   { title: "Riwayat Laporan", url: "/history", icon: History },
   { title: "Profil Sekolah", url: "/profile", icon: Building2 },
 ];
