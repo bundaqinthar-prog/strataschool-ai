@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sidebar";
 
 const tools = [
-  { title: "Dasbor", url: "/", icon: LayoutDashboard },
+  { title: "Dasbor", url: "/dashboard", icon: LayoutDashboard },
   { title: "Audit Marketing", url: "/audit", icon: ClipboardCheck },
   { title: "Riset Pasar", url: "/research", icon: Search },
   { title: "Positioning Sekolah", url: "/positioning", icon: Target },
