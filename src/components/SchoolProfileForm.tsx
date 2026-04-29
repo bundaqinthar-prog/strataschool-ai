@@ -41,6 +41,7 @@ export function SchoolProfileForm({ title, description, onSubmit, isLoading, ext
     tuitionRange: "",
     uniquePrograms: "",
     competitors: "",
+    competitorLinks: "",
     currentEnrollment: "",
     targetAudience: "",
     keyThemes: "",
