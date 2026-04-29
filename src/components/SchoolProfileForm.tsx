@@ -111,6 +111,22 @@ export function SchoolProfileForm({ title, description, onSubmit, isLoading, ext
               <Textarea value={form.competitors} onChange={(e) => update("competitors", e.target.value)} placeholder="Sebutkan sekolah kompetitor dan informasi yang Anda ketahui..." />
             </div>
           )}
+          {extraFields.includes("competitorLinks") && (
+            <div className="space-y-2">
+              <Label>
+                Link Website & Media Sosial Kompetitor <span className="text-muted-foreground font-normal">(opsional)</span>
+              </Label>
+              <Textarea
+                value={form.competitorLinks}
+                onChange={(e) => update("competitorLinks", e.target.value)}
+                placeholder={"Tempel satu link per baris, misal:\nhttps://sekolahabc.sch.id\nhttps://instagram.com/sekolahabc\nhttps://facebook.com/sekolahabc\nhttps://tiktok.com/@sekolahabc"}
+                rows={5}
+              />
+              <p className="text-xs text-muted-foreground">
+                AI akan menganalisis profil online kompetitor untuk insight yang lebih dalam (positioning, konten, tone, program).
+              </p>
+            </div>
+          )}
           {extraFields.includes("currentEnrollment") && (
             <div className="space-y-2">
               <Label>Tantangan Pendaftaran Saat Ini</Label>
