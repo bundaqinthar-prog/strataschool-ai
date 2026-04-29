@@ -23,6 +23,7 @@ import CopywriterAI from "@/pages/CopywriterAI";
 import VisionDiagnosis from "@/pages/VisionDiagnosis";
 import JatiDiri from "@/pages/JatiDiri";
 import ProgramDesigner from "@/pages/ProgramDesigner";
+import ImplementationCalendar from "@/pages/ImplementationCalendar";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
@@ -69,6 +70,7 @@ const App = () => (
               <Route path="/vision-diagnosis" element={<VisionDiagnosis />} />
               <Route path="/jati-diri" element={<JatiDiri />} />
               <Route path="/program-designer" element={<ProgramDesigner />} />
+              <Route path="/implementation-calendar" element={<ImplementationCalendar />} />
               <Route path="/history" element={<ReportHistory />} />
               <Route path="/profile" element={<SchoolProfile />} />
             </Route>

@@ -1,7 +1,7 @@
 import {
   LayoutDashboard, ClipboardCheck, Search, Target, Users,
   TrendingUp, Calendar, UserCircle, Shield, GraduationCap,
-  LogOut, History, Building2, Compass, PenTool, Eye, Fingerprint, Lightbulb,
+  LogOut, History, Building2, Compass, PenTool, Eye, Fingerprint, Lightbulb, CalendarRange,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { NavLink } from "@/components/NavLink";
@@ -27,6 +27,7 @@ const tools = [
   { title: "Diagnosis Visi", url: "/vision-diagnosis", icon: Eye },
   { title: "Jati Diri Generator", url: "/jati-diri", icon: Fingerprint },
   { title: "Design Program", url: "/program-designer", icon: Lightbulb },
+  { title: "Kalender Implementasi", url: "/implementation-calendar", icon: CalendarRange },
   { title: "Riwayat Laporan", url: "/history", icon: History },
   { title: "Profil Sekolah", url: "/profile", icon: Building2 },
 ];
