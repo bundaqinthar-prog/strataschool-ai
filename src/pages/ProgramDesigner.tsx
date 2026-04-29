@@ -184,20 +184,29 @@ Tabel sederhana per kuartal: Q1, Q2, Q3, Q4 — program apa yang dijalankan/diev
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Rekomendasi Program AI</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {report || isLoading ? (
-              <ReportDisplay report={report} isLoading={isLoading} />
-            ) : (
+        {report || isLoading ? (
+          <ReportDisplay
+            title="Rekomendasi Program AI"
+            content={report}
+            isLoading={isLoading}
+            pdfMeta={{
+              schoolName: form.schoolName,
+              featureName: "Design Program Sekolah",
+              academicYear: form.academicYear,
+            }}
+          />
+        ) : (
+          <Card>
+            <CardHeader>
+              <CardTitle>Rekomendasi Program AI</CardTitle>
+            </CardHeader>
+            <CardContent>
               <div className="text-center py-12 text-muted-foreground text-sm">
                 Hasil program akan muncul di sini setelah Anda mengisi visi & misi dan menekan tombol generate.
               </div>
-            )}
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
