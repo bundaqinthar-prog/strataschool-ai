@@ -22,6 +22,7 @@ import ConceptBuilder from "@/pages/ConceptBuilder";
 import CopywriterAI from "@/pages/CopywriterAI";
 import VisionDiagnosis from "@/pages/VisionDiagnosis";
 import JatiDiri from "@/pages/JatiDiri";
+import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import AdminLogin from "@/pages/AdminLogin";
@@ -39,6 +40,7 @@ const App = () => (
         <AuthProvider>
           <Routes>
             {/* Public */}
+            <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/admin/login" element={<AdminLogin />} />
@@ -52,7 +54,7 @@ const App = () => (
             <Route element={
               <ProtectedRoute><AppLayout /></ProtectedRoute>
             }>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/audit" element={<MarketingAudit />} />
               <Route path="/research" element={<MarketResearch />} />
               <Route path="/positioning" element={<SchoolPositioning />} />
