@@ -30,7 +30,7 @@ export default function CompetitorAnalysis() {
         <h1 className="text-3xl font-bold">Analisis Kompetitor</h1>
         <p className="text-muted-foreground mt-1">Analisis lanskap persaingan sekolah Anda</p>
       </div>
-      <SchoolProfileForm title="Info Sekolah & Kompetitor" description="Masukkan detail sekolah dan kompetitor Anda" onSubmit={handleSubmit} isLoading={isLoading} extraFields={["competitors"]} />
+      <SchoolProfileForm title="Info Sekolah & Kompetitor" description="Masukkan detail sekolah dan kompetitor Anda" onSubmit={handleSubmit} isLoading={isLoading} extraFields={["competitors", "competitorLinks"]} />
       <ReportDisplay
         title="Laporan Analisis Kompetitor"
         content={report}
