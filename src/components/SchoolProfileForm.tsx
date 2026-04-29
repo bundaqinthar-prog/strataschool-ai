@@ -16,6 +16,7 @@ export interface SchoolProfile {
   tuitionRange: string;
   uniquePrograms: string;
   competitors?: string;
+  competitorLinks?: string;
   currentEnrollment?: string;
   targetAudience?: string;
   keyThemes?: string;
@@ -27,7 +28,7 @@ interface SchoolProfileFormProps {
   description: string;
   onSubmit: (data: SchoolProfile) => void;
   isLoading?: boolean;
-  extraFields?: Array<"competitors" | "currentEnrollment" | "targetAudience" | "keyThemes">;
+  extraFields?: Array<"competitors" | "competitorLinks" | "currentEnrollment" | "targetAudience" | "keyThemes">;
 }
 
 export function SchoolProfileForm({ title, description, onSubmit, isLoading, extraFields = [] }: SchoolProfileFormProps) {
