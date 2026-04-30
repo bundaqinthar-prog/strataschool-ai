@@ -76,7 +76,7 @@ export function useAIReport() {
         toast({ title: "Kesalahan", description: error, variant: "destructive" });
       },
     });
-  }, [toast, user]);
+  }, [toast, user, isSubscriptionExpired]);
 
   return { report, isLoading, generate, setReport, savedId };
 }
