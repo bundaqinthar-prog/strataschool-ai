@@ -18,6 +18,13 @@ const JABATAN_OPTIONS = [
   "Lainnya",
 ];
 
+const PAKET_OPTIONS = [
+  { value: "12", label: "12 Bulan (Hemat)" },
+  { value: "6", label: "6 Bulan" },
+  { value: "3", label: "3 Bulan" },
+  { value: "1", label: "1 Bulan" },
+];
+
 export default function Register() {
   const [fullName, setFullName] = useState("");
   const [jabatan, setJabatan] = useState("");
