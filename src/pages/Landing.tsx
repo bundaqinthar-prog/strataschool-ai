@@ -252,7 +252,7 @@ export default function Landing() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { name: "Professional", price: "Rp 499K", per: "/bulan", desc: "Untuk sekolah aktif tumbuh", features: ["Semua 13+ Tools AI", "Laporan Tanpa Batas", "Cetak PDF Premium", "Riwayat Lengkap", "Support Prioritas"], highlight: true },
+              { name: "Professional", price: "Rp 59K", per: "/bulan", desc: "Untuk sekolah aktif tumbuh", features: ["Semua 13+ Tools AI", "Laporan Tanpa Batas", "Cetak PDF Premium", "Riwayat Lengkap", "Support Prioritas"], highlight: true },
               { name: "Enterprise", price: "Hubungi Kami", desc: "Untuk yayasan & multi-sekolah", features: ["Multi-Sekolah", "Dedicated Manager", "Custom Branding", "Training Tim", "SLA Khusus"], highlight: false },
             ].map((p) => (
               <Card key={p.name} className={p.highlight ? "border-primary border-2 shadow-xl relative" : ""}>
