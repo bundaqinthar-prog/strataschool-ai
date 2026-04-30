@@ -29,6 +29,7 @@ export default function Register() {
   const [fullName, setFullName] = useState("");
   const [jabatan, setJabatan] = useState("");
   const [schoolName, setSchoolName] = useState("");
+  const [paket, setPaket] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
