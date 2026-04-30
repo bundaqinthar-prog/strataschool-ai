@@ -250,9 +250,8 @@ export default function Landing() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { name: "Free Trial", price: "Gratis", desc: "Coba semua fitur dasar", features: ["Akses Audit Marketing", "1 Laporan AI", "Profil Sekolah", "Dasbor Sederhana"], highlight: false },
               { name: "Professional", price: "Rp 499K", per: "/bulan", desc: "Untuk sekolah aktif tumbuh", features: ["Semua 13+ Tools AI", "Laporan Tanpa Batas", "Cetak PDF Premium", "Riwayat Lengkap", "Support Prioritas"], highlight: true },
               { name: "Enterprise", price: "Hubungi Kami", desc: "Untuk yayasan & multi-sekolah", features: ["Multi-Sekolah", "Dedicated Manager", "Custom Branding", "Training Tim", "SLA Khusus"], highlight: false },
             ].map((p) => (
