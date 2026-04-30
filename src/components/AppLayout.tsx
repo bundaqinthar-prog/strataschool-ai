@@ -1,5 +1,6 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
+import { SubscriptionBanner } from "@/components/SubscriptionBanner";
 import { Outlet } from "react-router-dom";
 
 export function AppLayout() {
@@ -12,7 +13,8 @@ export function AppLayout() {
             <SidebarTrigger className="mr-4" />
             <span className="text-sm font-medium text-muted-foreground">Konsultan Marketing Sekolah Berbasis AI</span>
           </header>
-          <main className="flex-1 overflow-auto p-6">
+          <main className="flex-1 overflow-auto p-6 space-y-4">
+            <SubscriptionBanner />
             <Outlet />
           </main>
         </div>
