@@ -98,8 +98,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setProfile(null);
   };
 
+  // Compute subscription status
+  const expiresAt = profile?.subscription_expires_at
+    ? new Date(profile.subscription_expires_at)
+    : null;
+  const now = new Date();
+  const isSubscriptionExpired =
+    profile?.status === "approved" && !!expiresAt && expiresAt.getTime() < now.getTime();
+  const daysUntilExpiry = expiresAt
+    ? Math.ceil((expiresAt.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+    : null;
+
   return (
-    <AuthContext.Provider value={{ user, session, profile, loading, signOut, refreshProfile }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        session,
+        profile,
+        loading,
+        isSubscriptionExpired,
+        daysUntilExpiry,
+        signOut,
+        refreshProfile,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
