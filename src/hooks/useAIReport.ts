@@ -18,13 +18,23 @@ export function useAIReport() {
   const [isLoading, setIsLoading] = useState(false);
   const [savedId, setSavedId] = useState<string | null>(null);
   const { toast } = useToast();
-  const { user } = useAuth();
+  const { user, isSubscriptionExpired } = useAuth();
 
   const generate = useCallback(async (
     systemPrompt: string,
     userPrompt: string,
     saveOptions?: SaveOptions
   ) => {
+    if (isSubscriptionExpired) {
+      toast({
+        title: "Langganan berakhir",
+        description:
+          "Akses fitur AI dibatasi. Silakan perpanjang paket langganan Anda untuk melanjutkan.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setReport("");
     setIsLoading(true);
     setSavedId(null);
@@ -66,7 +76,7 @@ export function useAIReport() {
         toast({ title: "Kesalahan", description: error, variant: "destructive" });
       },
     });
-  }, [toast, user]);
+  }, [toast, user, isSubscriptionExpired]);
 
   return { report, isLoading, generate, setReport, savedId };
 }

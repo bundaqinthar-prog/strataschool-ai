@@ -11,6 +11,9 @@ interface Profile {
   jabatan: string;
   email: string;
   status: ApprovalStatus;
+  subscription_months?: number | null;
+  subscription_started_at?: string | null;
+  subscription_expires_at?: string | null;
 }
 
 interface AuthContextType {
@@ -18,6 +21,8 @@ interface AuthContextType {
   session: Session | null;
   profile: Profile | null;
   loading: boolean;
+  isSubscriptionExpired: boolean;
+  daysUntilExpiry: number | null;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
 }
@@ -27,6 +32,8 @@ const AuthContext = createContext<AuthContextType>({
   session: null,
   profile: null,
   loading: true,
+  isSubscriptionExpired: false,
+  daysUntilExpiry: null,
   signOut: async () => {},
   refreshProfile: async () => {},
 });
@@ -91,8 +98,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setProfile(null);
   };
 
+  // Compute subscription status
+  const expiresAt = profile?.subscription_expires_at
+    ? new Date(profile.subscription_expires_at)
+    : null;
+  const now = new Date();
+  const isSubscriptionExpired =
+    profile?.status === "approved" && !!expiresAt && expiresAt.getTime() < now.getTime();
+  const daysUntilExpiry = expiresAt
+    ? Math.ceil((expiresAt.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+    : null;
+
   return (
-    <AuthContext.Provider value={{ user, session, profile, loading, signOut, refreshProfile }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        session,
+        profile,
+        loading,
+        isSubscriptionExpired,
+        daysUntilExpiry,
+        signOut,
+        refreshProfile,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
