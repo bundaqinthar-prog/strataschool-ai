@@ -59,6 +59,9 @@ export type Database = {
           jabatan: string
           school_name: string
           status: Database["public"]["Enums"]["approval_status"]
+          subscription_expires_at: string | null
+          subscription_months: number
+          subscription_started_at: string | null
           updated_at: string
         }
         Insert: {
@@ -69,6 +72,9 @@ export type Database = {
           jabatan?: string
           school_name?: string
           status?: Database["public"]["Enums"]["approval_status"]
+          subscription_expires_at?: string | null
+          subscription_months?: number
+          subscription_started_at?: string | null
           updated_at?: string
         }
         Update: {
@@ -79,6 +85,9 @@ export type Database = {
           jabatan?: string
           school_name?: string
           status?: Database["public"]["Enums"]["approval_status"]
+          subscription_expires_at?: string | null
+          subscription_months?: number
+          subscription_started_at?: string | null
           updated_at?: string
         }
         Relationships: []
