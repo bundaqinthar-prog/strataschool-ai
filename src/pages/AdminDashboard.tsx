@@ -221,17 +221,37 @@ export default function AdminDashboard() {
                       <TableHead>Nama</TableHead>
                       <TableHead>Email</TableHead>
                       <TableHead>Sekolah</TableHead>
+                      <TableHead>Paket</TableHead>
+                      <TableHead>Aktif Hingga</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead>Terdaftar</TableHead>
                       <TableHead className="text-right">Aksi</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {users.map((u) => (
+                    {users.map((u) => {
+                      const expiresAt = u.subscription_expires_at
+                        ? new Date(u.subscription_expires_at)
+                        : null;
+                      const isExpired = expiresAt ? expiresAt.getTime() < Date.now() : false;
+                      return (
                       <TableRow key={u.id}>
                         <TableCell className="font-medium">{u.full_name || "—"}</TableCell>
                         <TableCell>{u.email}</TableCell>
                         <TableCell>{u.school_name || "—"}</TableCell>
+                        <TableCell className="text-sm">
+                          {u.subscription_months ? `${u.subscription_months} bulan` : "—"}
+                        </TableCell>
+                        <TableCell className="text-sm">
+                          {expiresAt ? (
+                            <span className={isExpired ? "text-destructive font-medium" : ""}>
+                              {expiresAt.toLocaleDateString("id-ID", { day: "2-digit", month: "short", year: "numeric" })}
+                              {isExpired && " (kadaluarsa)"}
+                            </span>
+                          ) : (
+                            <span className="text-muted-foreground">Belum aktif</span>
+                          )}
+                        </TableCell>
                         <TableCell>{statusBadge(u.status)}</TableCell>
                         <TableCell className="text-sm text-muted-foreground">
                           {new Date(u.created_at).toLocaleDateString("id-ID")}
