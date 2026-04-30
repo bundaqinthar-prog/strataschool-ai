@@ -91,12 +91,23 @@ export default function Register() {
             </div>
             <CardTitle className="text-2xl">Pendaftaran Berhasil!</CardTitle>
             <CardDescription className="text-base leading-relaxed">
-              Silakan cek email Anda untuk verifikasi akun. Setelah verifikasi, akun Anda akan menunggu persetujuan admin sebelum dapat mengakses aplikasi.
+              Untuk mengaktifkan akun Anda, silakan klik tombol pembelian di bawah ini. Anda akan diarahkan ke form pembelian. Setelah pembayaran selesai, mohon lakukan konfirmasi kepada tim kami agar akun Anda segera diaktifkan.
             </CardDescription>
           </CardHeader>
-          <CardFooter className="justify-center">
-            <Link to="/login">
-              <Button variant="outline">Kembali ke halaman masuk</Button>
+          <CardFooter className="flex flex-col gap-3">
+            <a
+              href="https://lifecoach.myscalev.com/co-robot-konsultan-marketing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button className="w-full">Lanjutkan ke Pembelian</Button>
+            </a>
+            <p className="text-xs text-muted-foreground text-center">
+              Setelah pembayaran berhasil, mohon konfirmasi kepada tim kami untuk aktivasi akun.
+            </p>
+            <Link to="/login" className="w-full">
+              <Button variant="outline" className="w-full">Kembali ke halaman masuk</Button>
             </Link>
           </CardFooter>
         </Card>
