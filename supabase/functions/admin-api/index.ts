@@ -114,9 +114,31 @@ serve(async (req) => {
         });
       }
 
+      const updatePayload: Record<string, unknown> = {
+        status,
+        updated_at: new Date().toISOString(),
+      };
+
+      if (status === "approved") {
+        // Look up the chosen subscription length
+        const { data: profile } = await adminClient
+          .from("profiles")
+          .select("subscription_months")
+          .eq("id", userId)
+          .single();
+
+        const months = profile?.subscription_months ?? 1;
+        const startedAt = new Date();
+        const expiresAt = new Date(startedAt);
+        expiresAt.setMonth(expiresAt.getMonth() + months);
+
+        updatePayload.subscription_started_at = startedAt.toISOString();
+        updatePayload.subscription_expires_at = expiresAt.toISOString();
+      }
+
       const { error } = await adminClient
         .from("profiles")
-        .update({ status, updated_at: new Date().toISOString() })
+        .update(updatePayload)
         .eq("id", userId);
 
       if (error) throw error;
