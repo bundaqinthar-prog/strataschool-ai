@@ -40,6 +40,9 @@ interface UserProfile {
   status: "pending" | "approved" | "rejected";
   created_at: string;
   updated_at: string;
+  subscription_months?: number | null;
+  subscription_started_at?: string | null;
+  subscription_expires_at?: string | null;
 }
 
 interface Stats {
