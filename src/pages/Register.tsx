@@ -48,6 +48,15 @@ export default function Register() {
       return;
     }
 
+    if (!paket) {
+      toast({
+        title: "Paket langganan wajib dipilih",
+        description: "Silakan pilih durasi paket langganan",
+        variant: "destructive",
+      });
+      return;
+    }
+
     if (password.length < 6) {
       toast({
         title: "Kata sandi terlalu pendek",
@@ -72,6 +81,7 @@ export default function Register() {
           full_name: sanitizedFullName,
           school_name: sanitizedSchoolName,
           jabatan,
+          subscription_months: paket,
         },
         emailRedirectTo: window.location.origin,
       },
