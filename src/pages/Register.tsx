@@ -18,10 +18,18 @@ const JABATAN_OPTIONS = [
   "Lainnya",
 ];
 
+const PAKET_OPTIONS = [
+  { value: "12", label: "12 Bulan (Hemat)" },
+  { value: "6", label: "6 Bulan" },
+  { value: "3", label: "3 Bulan" },
+  { value: "1", label: "1 Bulan" },
+];
+
 export default function Register() {
   const [fullName, setFullName] = useState("");
   const [jabatan, setJabatan] = useState("");
   const [schoolName, setSchoolName] = useState("");
+  const [paket, setPaket] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,6 +43,15 @@ export default function Register() {
       toast({
         title: "Jabatan wajib dipilih",
         description: "Silakan pilih jabatan Anda di sekolah",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!paket) {
+      toast({
+        title: "Paket langganan wajib dipilih",
+        description: "Silakan pilih durasi paket langganan",
         variant: "destructive",
       });
       return;
@@ -64,6 +81,7 @@ export default function Register() {
           full_name: sanitizedFullName,
           school_name: sanitizedSchoolName,
           jabatan,
+          subscription_months: paket,
         },
         emailRedirectTo: window.location.origin,
       },
@@ -167,6 +185,22 @@ export default function Register() {
                 required
                 maxLength={200}
               />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="paket">Paket Langganan <span className="text-destructive">*</span></Label>
+              <Select value={paket} onValueChange={setPaket} required>
+                <SelectTrigger id="paket">
+                  <SelectValue placeholder="Pilih durasi paket langganan" />
+                </SelectTrigger>
+                <SelectContent>
+                  {PAKET_OPTIONS.map((opt) => (
+                    <SelectItem key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">
