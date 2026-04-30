@@ -109,9 +109,29 @@ export default function Register() {
             </div>
             <CardTitle className="text-2xl">Pendaftaran Berhasil!</CardTitle>
             <CardDescription className="text-base leading-relaxed">
-              Untuk mengaktifkan akun Anda, silakan klik tombol pembelian di bawah ini. Anda akan diarahkan ke form pembelian. Setelah pembayaran selesai, mohon lakukan konfirmasi kepada tim kami agar akun Anda segera diaktifkan.
+              Akun Anda sudah berhasil dibuat. Silakan ikuti 2 langkah berikut untuk mengaktifkan akun:
             </CardDescription>
           </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="rounded-lg border bg-muted/40 p-4 space-y-1">
+              <p className="text-sm font-semibold text-foreground">
+                <span className="text-primary">Langkah 1.</span> Konfirmasi Email
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Cek kotak masuk email <strong>{email}</strong> dan klik tautan verifikasi yang kami kirim.
+                Jika tidak menemukan email, periksa folder <em>Spam</em> atau <em>Promosi</em>.
+              </p>
+            </div>
+            <div className="rounded-lg border bg-muted/40 p-4 space-y-1">
+              <p className="text-sm font-semibold text-foreground">
+                <span className="text-primary">Langkah 2.</span> Lakukan Pembayaran Paket
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Klik tombol di bawah ini untuk diarahkan ke form pembelian. Setelah pembayaran selesai,
+                mohon konfirmasi kepada tim kami agar akun Anda segera diaktifkan.
+              </p>
+            </div>
+          </CardContent>
           <CardFooter className="flex flex-col gap-3">
             <a
               href="https://lifecoach.myscalev.com/co-robot-konsultan-marketing"
@@ -121,9 +141,6 @@ export default function Register() {
             >
               <Button className="w-full">Lanjutkan ke Pembelian</Button>
             </a>
-            <p className="text-xs text-muted-foreground text-center">
-              Setelah pembayaran berhasil, mohon konfirmasi kepada tim kami untuk aktivasi akun.
-            </p>
             <Link to="/login" className="w-full">
               <Button variant="outline" className="w-full">Kembali ke halaman masuk</Button>
             </Link>
