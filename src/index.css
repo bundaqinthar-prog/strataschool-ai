@@ -147,4 +147,44 @@
     size: A4;
     margin: 15mm;
   }
+
+  /* Markdown report tables — must render with visible borders when printed */
+  .report-markdown table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 8pt 0 !important;
+    font-size: 9pt !important;
+    page-break-inside: auto;
+  }
+  .report-markdown thead { display: table-header-group; }
+  .report-markdown tr { page-break-inside: avoid; }
+  .report-markdown th,
+  .report-markdown td {
+    border: 0.5pt solid #999 !important;
+    padding: 4pt 6pt !important;
+    vertical-align: top !important;
+    text-align: left;
+    color: black !important;
+  }
+  .report-markdown th {
+    background: #1e3a8a !important;
+    color: white !important;
+    font-weight: bold;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .report-markdown h1,
+  .report-markdown h2,
+  .report-markdown h3 {
+    color: #1e3a8a !important;
+    page-break-after: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .report-markdown ul,
+  .report-markdown ol {
+    margin: 4pt 0 4pt 18pt !important;
+  }
+  .report-markdown ul { list-style: disc !important; }
+  .report-markdown ol { list-style: decimal !important; }
 }
