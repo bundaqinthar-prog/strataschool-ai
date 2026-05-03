@@ -64,6 +64,7 @@ const initialForm: FormData = {
 
 export default function Renstra() {
   const [form, setForm] = useState<FormData>(initialForm);
+  const [documents, setDocuments] = useState<ParsedDocument[]>([]);
   const [showResult, setShowResult] = useState(false);
   const { report, isLoading, generate, setReport } = useAIReport();
   const { profile } = useAuth();
