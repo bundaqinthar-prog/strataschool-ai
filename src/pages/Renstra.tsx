@@ -222,6 +222,23 @@ ${form.stakeholders || "Guru, Tenaga Kependidikan, Komite Sekolah, Orang Tua, Ya
 **Tujuan Jangka Panjang yang Diharapkan (5 Tahun):**
 ${form.longTermGoals}
 
+${
+  documents.length > 0
+    ? `**📎 DOKUMEN PENDUKUNG YANG DIUNGGAH (${documents.length}):**
+Tarik poin-poin kunci yang relevan dari dokumen berikut (data baseline, capaian, kelemahan, anggaran, rekomendasi akreditasi, dll) dan integrasikan ke dalam analisis situasi, KPI baseline, serta program kerja Renstra.
+
+${documents
+  .map(
+    (d, i) => `--- Dokumen ${i + 1}: ${d.fileName}${d.pageCount ? ` (${d.pageCount} hlm)` : ""}${d.truncated ? " [DIPOTONG]" : ""} ---
+${d.text}
+--- Akhir Dokumen ${i + 1} ---`,
+  )
+  .join("\n\n")}
+
+Wajib: di BAB II Analisis Situasi, sebutkan secara eksplisit referensi ke dokumen-dokumen ini (mis. "Berdasarkan Rapor Pendidikan...", "Sesuai RKAS...", "Mengacu hasil akreditasi..."). Pada BAB VI KPI, gunakan angka baseline aktual dari dokumen jika tersedia.`
+    : ""
+}
+
 Susun dokumen Renstra yang siap pakai, kontekstual untuk sekolah Indonesia, terukur, dan mudah dieksekusi. Pastikan setiap program di roadmap tahunan saling terhubung dan progresif.`;
 
     await generate(systemPrompt, userPrompt, {
