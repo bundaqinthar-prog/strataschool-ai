@@ -10,6 +10,8 @@ import { useAIReport } from "@/hooks/useAIReport";
 import { useAuth } from "@/contexts/AuthContext";
 import { Loader2, ArrowLeft, Printer, Compass, Target, Users, TrendingUp, BookOpen } from "lucide-react";
 import { ReportDisplay } from "@/components/ReportDisplay";
+import { DocumentUploader } from "@/components/DocumentUploader";
+import type { ParsedDocument } from "@/lib/document-parser";
 
 const ANALYSIS_FRAMEWORKS = ["SWOT", "SOAR (Strengths, Opportunities, Aspirations, Results)"];
 
@@ -62,6 +64,7 @@ const initialForm: FormData = {
 
 export default function Renstra() {
   const [form, setForm] = useState<FormData>(initialForm);
+  const [documents, setDocuments] = useState<ParsedDocument[]>([]);
   const [showResult, setShowResult] = useState(false);
   const { report, isLoading, generate, setReport } = useAIReport();
   const { profile } = useAuth();
@@ -218,6 +221,23 @@ ${form.stakeholders || "Guru, Tenaga Kependidikan, Komite Sekolah, Orang Tua, Ya
 
 **Tujuan Jangka Panjang yang Diharapkan (5 Tahun):**
 ${form.longTermGoals}
+
+${
+  documents.length > 0
+    ? `**📎 DOKUMEN PENDUKUNG YANG DIUNGGAH (${documents.length}):**
+Tarik poin-poin kunci yang relevan dari dokumen berikut (data baseline, capaian, kelemahan, anggaran, rekomendasi akreditasi, dll) dan integrasikan ke dalam analisis situasi, KPI baseline, serta program kerja Renstra.
+
+${documents
+  .map(
+    (d, i) => `--- Dokumen ${i + 1}: ${d.fileName}${d.pageCount ? ` (${d.pageCount} hlm)` : ""}${d.truncated ? " [DIPOTONG]" : ""} ---
+${d.text}
+--- Akhir Dokumen ${i + 1} ---`,
+  )
+  .join("\n\n")}
+
+Wajib: di BAB II Analisis Situasi, sebutkan secara eksplisit referensi ke dokumen-dokumen ini (mis. "Berdasarkan Rapor Pendidikan...", "Sesuai RKAS...", "Mengacu hasil akreditasi..."). Pada BAB VI KPI, gunakan angka baseline aktual dari dokumen jika tersedia.`
+    : ""
+}
 
 Susun dokumen Renstra yang siap pakai, kontekstual untuk sekolah Indonesia, terukur, dan mudah dieksekusi. Pastikan setiap program di roadmap tahunan saling terhubung dan progresif.`;
 
@@ -430,6 +450,23 @@ Susun dokumen Renstra yang siap pakai, kontekstual untuk sekolah Indonesia, teru
             onChange={(e) => setForm((p) => ({ ...p, schoolContext: e.target.value }))}
             rows={4}
           />
+        </CardContent>
+      </Card>
+
+      {/* Dokumen Pendukung */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">📎</span>
+            Dokumen Pendukung (Opsional)
+          </CardTitle>
+          <CardDescription>
+            Unggah Rapor Pendidikan, RKAS, laporan akreditasi, atau dokumen lain. AI akan menarik poin
+            kunci, baseline data, dan rekomendasi untuk memperkuat Renstra.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <DocumentUploader documents={documents} onChange={setDocuments} maxFiles={5} />
         </CardContent>
       </Card>
 
