@@ -453,6 +453,23 @@ Susun dokumen Renstra yang siap pakai, kontekstual untuk sekolah Indonesia, teru
         </CardContent>
       </Card>
 
+      {/* Dokumen Pendukung */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">📎</span>
+            Dokumen Pendukung (Opsional)
+          </CardTitle>
+          <CardDescription>
+            Unggah Rapor Pendidikan, RKAS, laporan akreditasi, atau dokumen lain. AI akan menarik poin
+            kunci, baseline data, dan rekomendasi untuk memperkuat Renstra.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <DocumentUploader documents={documents} onChange={setDocuments} maxFiles={5} />
+        </CardContent>
+      </Card>
+
       {/* Analisis Situasi */}
       <Card>
         <CardHeader>
