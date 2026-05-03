@@ -10,6 +10,8 @@ import { useAIReport } from "@/hooks/useAIReport";
 import { useAuth } from "@/contexts/AuthContext";
 import { Loader2, ArrowLeft, Printer, Compass, Target, Users, TrendingUp, BookOpen } from "lucide-react";
 import { ReportDisplay } from "@/components/ReportDisplay";
+import { DocumentUploader } from "@/components/DocumentUploader";
+import type { ParsedDocument } from "@/lib/document-parser";
 
 const ANALYSIS_FRAMEWORKS = ["SWOT", "SOAR (Strengths, Opportunities, Aspirations, Results)"];
 
