@@ -116,14 +116,19 @@ export default function Konsultasi() {
       <Card className="flex-1 flex flex-col overflow-hidden">
         <ScrollArea className="flex-1 p-4" ref={scrollRef as any}>
           {messages.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-full text-center py-12">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <div className="flex flex-col items-center justify-center h-full text-center py-8 space-y-6">
+              <div className="w-full max-w-3xl">
+                <WelcomeHero variant="compact" schoolName={profile?.school_name} />
+              </div>
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
                 <Bot className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">Halo! Saya asisten Anda 👋</h3>
-              <p className="text-sm text-muted-foreground mb-6 max-w-md">
-                Mulai konsultasi gratis dengan memilih pertanyaan di bawah, atau ketik pertanyaan Anda sendiri.
-              </p>
+              <div>
+                <h3 className="font-semibold text-lg mb-2">Halo! Saya asisten AI Anda 👋</h3>
+                <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                  Mulai konsultasi gratis dengan memilih pertanyaan di bawah, atau ketik pertanyaan Anda sendiri.
+                </p>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full max-w-2xl">
                 {SUGGESTIONS.map((s) => (
                   <button
