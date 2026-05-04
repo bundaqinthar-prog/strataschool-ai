@@ -1,7 +1,7 @@
 import {
   LayoutDashboard, ClipboardCheck, Search, Target, Users,
   TrendingUp, Calendar, UserCircle, Shield, GraduationCap,
-  LogOut, History, Building2, Compass, PenTool, Eye, Fingerprint, Lightbulb, CalendarRange, BookMarked,
+  LogOut, History, Building2, Compass, PenTool, Eye, Fingerprint, Lightbulb, CalendarRange, BookMarked, MessageCircle,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { NavLink } from "@/components/NavLink";
@@ -14,6 +14,7 @@ import {
 
 const tools = [
   { title: "Dasbor", url: "/dashboard", icon: LayoutDashboard },
+  { title: "Konsultasi AI", url: "/konsultasi", icon: MessageCircle },
   { title: "Audit Marketing", url: "/audit", icon: ClipboardCheck },
   { title: "Riset Pasar", url: "/research", icon: Search },
   { title: "Positioning Sekolah", url: "/positioning", icon: Target },
