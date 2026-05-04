@@ -11,6 +11,7 @@ import {
   AlertTriangle, Printer, ClipboardCheck, CheckCircle2,
   Clock, FileText, ArrowRight, BarChart3,
 } from "lucide-react";
+import { WelcomeHero } from "@/components/WelcomeHero";
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
