@@ -11,6 +11,7 @@ import {
   AlertTriangle, Printer, ClipboardCheck, CheckCircle2,
   Clock, FileText, ArrowRight, BarChart3,
 } from "lucide-react";
+import { WelcomeHero } from "@/components/WelcomeHero";
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -87,17 +88,20 @@ function DashboardSkeleton() {
 function EmptyState() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-      <div className="rounded-full bg-muted p-6 mb-6">
-        <FileText className="h-16 w-16 text-muted-foreground" />
+    <div className="space-y-6 max-w-6xl mx-auto">
+      <WelcomeHero variant="full" />
+      <div className="flex flex-col items-center justify-center text-center px-4 py-12">
+        <div className="rounded-full bg-muted p-6 mb-6">
+          <FileText className="h-16 w-16 text-muted-foreground" />
+        </div>
+        <h2 className="text-2xl font-bold mb-2">Belum Ada Riwayat Laporan</h2>
+        <p className="text-muted-foreground max-w-md mb-8">
+          Anda belum memiliki riwayat laporan. Silakan mulai audit pertama Anda untuk mengetahui kesehatan marketing sekolah.
+        </p>
+        <Button size="lg" onClick={() => navigate("/audit")} className="gap-2 text-base px-8">
+          <ClipboardCheck className="h-5 w-5" /> Mulai Audit Sekarang <ArrowRight className="h-4 w-4" />
+        </Button>
       </div>
-      <h2 className="text-2xl font-bold mb-2">Belum Ada Riwayat Laporan</h2>
-      <p className="text-muted-foreground max-w-md mb-8">
-        Anda belum memiliki riwayat laporan. Silakan mulai audit pertama Anda untuk mengetahui kesehatan marketing sekolah.
-      </p>
-      <Button size="lg" onClick={() => navigate("/audit")} className="gap-2 text-base px-8">
-        <ClipboardCheck className="h-5 w-5" /> Mulai Audit Sekarang <ArrowRight className="h-4 w-4" />
-      </Button>
     </div>
   );
 }
@@ -156,6 +160,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto dashboard-print">
+      <WelcomeHero variant="compact" schoolName={profile?.school_name} />
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
