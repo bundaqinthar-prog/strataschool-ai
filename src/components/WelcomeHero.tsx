@@ -19,7 +19,7 @@ const WA_MESSAGE = encodeURIComponent(
   "Halo Pak Wahid, saya tertarik konsultasi/training AI & Digital Marketing untuk sekolah saya."
 );
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
-const IG_LINK = "https://instagram.com/wahidhasymr";
+const IG_LINK = "https://www.instagram.com/wahidhasyimr/";
 
 interface WelcomeHeroProps {
   /** Compact varian untuk ditampilkan di empty state / sub-halaman */
