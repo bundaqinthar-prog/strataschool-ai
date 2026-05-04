@@ -160,6 +160,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto dashboard-print">
+      <WelcomeHero variant="compact" schoolName={profile?.school_name} />
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
