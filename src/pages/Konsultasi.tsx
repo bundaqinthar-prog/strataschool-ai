@@ -10,6 +10,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { WelcomeHero } from "@/components/WelcomeHero";
 
 type Msg = { role: "user" | "assistant" | "system"; content: string };
 
