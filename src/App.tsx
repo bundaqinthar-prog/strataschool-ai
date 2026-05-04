@@ -25,6 +25,7 @@ import JatiDiri from "@/pages/JatiDiri";
 import ProgramDesigner from "@/pages/ProgramDesigner";
 import ImplementationCalendar from "@/pages/ImplementationCalendar";
 import Renstra from "@/pages/Renstra";
+import Konsultasi from "@/pages/Konsultasi";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
