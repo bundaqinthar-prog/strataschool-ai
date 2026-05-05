@@ -21,6 +21,7 @@ import SchoolProfile from "@/pages/SchoolProfile";
 import ConceptBuilder from "@/pages/ConceptBuilder";
 import CopywriterAI from "@/pages/CopywriterAI";
 import VisionDiagnosis from "@/pages/VisionDiagnosis";
+import VisionMissionAudit from "@/pages/VisionMissionAudit";
 import JatiDiri from "@/pages/JatiDiri";
 import ProgramDesigner from "@/pages/ProgramDesigner";
 import ImplementationCalendar from "@/pages/ImplementationCalendar";
@@ -70,6 +71,7 @@ const App = () => (
               <Route path="/concept" element={<ConceptBuilder />} />
               <Route path="/copywriter" element={<CopywriterAI />} />
               <Route path="/vision-diagnosis" element={<VisionDiagnosis />} />
+              <Route path="/vision-mission-audit" element={<VisionMissionAudit />} />
               <Route path="/jati-diri" element={<JatiDiri />} />
               <Route path="/program-designer" element={<ProgramDesigner />} />
               <Route path="/implementation-calendar" element={<ImplementationCalendar />} />
