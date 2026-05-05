@@ -52,11 +52,17 @@ export type Database = {
       }
       profiles: {
         Row: {
+          address: string
+          city: string
           created_at: string
           email: string
           full_name: string
           id: string
           jabatan: string
+          latitude: number | null
+          longitude: number | null
+          postal_code: string
+          province: string
           school_name: string
           status: Database["public"]["Enums"]["approval_status"]
           subscription_expires_at: string | null
@@ -65,11 +71,17 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          address?: string
+          city?: string
           created_at?: string
           email?: string
           full_name?: string
           id: string
           jabatan?: string
+          latitude?: number | null
+          longitude?: number | null
+          postal_code?: string
+          province?: string
           school_name?: string
           status?: Database["public"]["Enums"]["approval_status"]
           subscription_expires_at?: string | null
@@ -78,11 +90,17 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          address?: string
+          city?: string
           created_at?: string
           email?: string
           full_name?: string
           id?: string
           jabatan?: string
+          latitude?: number | null
+          longitude?: number | null
+          postal_code?: string
+          province?: string
           school_name?: string
           status?: Database["public"]["Enums"]["approval_status"]
           subscription_expires_at?: string | null
