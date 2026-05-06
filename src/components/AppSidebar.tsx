@@ -1,7 +1,7 @@
 import {
   LayoutDashboard, ClipboardCheck, Search, Target, Users,
   TrendingUp, Calendar, UserCircle, Shield, GraduationCap,
-  LogOut, History, Building2, Compass, PenTool, Eye, Fingerprint, Lightbulb, CalendarRange, BookMarked, MessageCircle, ScanSearch,
+  LogOut, History, Building2, Compass, PenTool, Eye, Fingerprint, Lightbulb, CalendarRange, BookMarked, MessageCircle, ScanSearch, MessageSquareQuote,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { NavLink } from "@/components/NavLink";
@@ -25,6 +25,7 @@ const tools = [
   { title: "Analisis SWOT", url: "/swot", icon: Shield },
   { title: "Arsitek Konsep AI", url: "/concept", icon: Compass },
   { title: "Copywriter AI", url: "/copywriter", icon: PenTool },
+  { title: "Key Messaging", url: "/key-messaging", icon: MessageSquareQuote },
   { title: "Diagnosis Visi", url: "/vision-diagnosis", icon: Eye },
   { title: "Audit Visi & Misi", url: "/vision-mission-audit", icon: ScanSearch },
   { title: "Jati Diri Generator", url: "/jati-diri", icon: Fingerprint },
