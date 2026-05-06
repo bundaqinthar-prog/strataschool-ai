@@ -103,8 +103,8 @@ FORMAT OUTPUT (markdown rapi, gunakan struktur ini secara berurutan):
     const userPrompt = `Susun Dokumen Strategi Marketing untuk sekolah berikut:
 
 **Nama Sekolah:** ${profile?.school_name || "(belum diisi)"}
-**Lokasi:** ${profile?.city || ""} ${profile?.province || ""}
-**Alamat:** ${profile?.address || "-"}
+**Lokasi:** ${(profile as any)?.city || ""} ${(profile as any)?.province || ""}
+**Alamat:** ${(profile as any)?.address || "-"}
 
 **Tujuan Pemasaran:**
 ${tujuan}
