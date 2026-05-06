@@ -27,6 +27,7 @@ import ProgramDesigner from "@/pages/ProgramDesigner";
 import ImplementationCalendar from "@/pages/ImplementationCalendar";
 import Renstra from "@/pages/Renstra";
 import KeyMessaging from "@/pages/KeyMessaging";
+import MarketingStrategy from "@/pages/MarketingStrategy";
 import Konsultasi from "@/pages/Konsultasi";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
@@ -78,6 +79,7 @@ const App = () => (
               <Route path="/implementation-calendar" element={<ImplementationCalendar />} />
               <Route path="/renstra" element={<Renstra />} />
               <Route path="/key-messaging" element={<KeyMessaging />} />
+              <Route path="/marketing-strategy" element={<MarketingStrategy />} />
               <Route path="/konsultasi" element={<Konsultasi />} />
               <Route path="/history" element={<ReportHistory />} />
               <Route path="/profile" element={<SchoolProfile />} />
