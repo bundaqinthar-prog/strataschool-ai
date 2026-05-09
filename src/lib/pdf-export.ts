@@ -60,9 +60,11 @@ type InlineToken = { text: string; bold: boolean; italic: boolean };
 function tokenizeInline(input: string): InlineToken[] {
   const tokens: InlineToken[] = [];
   // First strip links and inline code (render as plain)
-  const cleaned = input
-    .replace(/\[(.+?)\]\(.+?\)/g, "$1")
-    .replace(/`([^`]+)`/g, "$1");
+  const cleaned = stripEmoji(
+    input
+      .replace(/\[(.+?)\]\(.+?\)/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+  );
 
   const regex = /(\*\*([^*]+)\*\*|__([^_]+)__|\*([^*]+)\*|_([^_]+)_)/g;
   let lastIndex = 0;
