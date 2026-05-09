@@ -25,25 +25,46 @@ const parseTableRow = (line: string): string[] =>
     .split("|")
     .map((c) => stripInlineMd(c.trim()));
 
+// Strip emojis & symbols that helvetica cannot render (would show as garbage glyphs)
+const stripEmoji = (s: string) =>
+  s
+    // Remove emoji & pictographic ranges
+    .replace(/[\u{1F300}-\u{1FAFF}]/gu, "")
+    .replace(/[\u{2600}-\u{27BF}]/gu, "")
+    .replace(/[\u{1F1E6}-\u{1F1FF}]/gu, "")
+    .replace(/[\u{2300}-\u{23FF}]/gu, "")
+    .replace(/[\u{2B00}-\u{2BFF}]/gu, "")
+    .replace(/[\u{FE0F}\u{200D}]/gu, "")
+    // Common bullet/arrow symbols not in WinAnsi
+    .replace(/[→←↑↓➜➤➔➡⇒⇨►▶◆◇■□●○★☆✓✔✗✘✦✧]/g, "")
+    .replace(/[\u{1F100}-\u{1F1FF}]/gu, "")
+    // Collapse multiple spaces left behind
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+
 // Remove markdown emphasis but keep characters (used for tables / headings)
 const stripInlineMd = (s: string) =>
-  s
-    .replace(/\*\*(.+?)\*\*/g, "$1")
-    .replace(/__(.+?)__/g, "$1")
-    .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, "$1")
-    .replace(/_(.+?)_/g, "$1")
-    .replace(/`(.+?)`/g, "$1")
-    .replace(/\[(.+?)\]\(.+?\)/g, "$1")
-    .trim();
+  stripEmoji(
+    s
+      .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/__(.+?)__/g, "$1")
+      .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, "$1")
+      .replace(/_(.+?)_/g, "$1")
+      .replace(/`(.+?)`/g, "$1")
+      .replace(/\[(.+?)\]\(.+?\)/g, "$1")
+      .trim()
+  );
 
 // Tokenise inline text into bold/italic/normal segments for proper rendering
 type InlineToken = { text: string; bold: boolean; italic: boolean };
 function tokenizeInline(input: string): InlineToken[] {
   const tokens: InlineToken[] = [];
   // First strip links and inline code (render as plain)
-  const cleaned = input
-    .replace(/\[(.+?)\]\(.+?\)/g, "$1")
-    .replace(/`([^`]+)`/g, "$1");
+  const cleaned = stripEmoji(
+    input
+      .replace(/\[(.+?)\]\(.+?\)/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+  );
 
   const regex = /(\*\*([^*]+)\*\*|__([^_]+)__|\*([^*]+)\*|_([^_]+)_)/g;
   let lastIndex = 0;
