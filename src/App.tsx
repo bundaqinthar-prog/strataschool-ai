@@ -81,6 +81,7 @@ const App = () => (
               <Route path="/renstra" element={<Renstra />} />
               <Route path="/key-messaging" element={<KeyMessaging />} />
               <Route path="/marketing-strategy" element={<MarketingStrategy />} />
+              <Route path="/wa-marketing" element={<WhatsAppMarketing />} />
               <Route path="/konsultasi" element={<Konsultasi />} />
               <Route path="/history" element={<ReportHistory />} />
               <Route path="/profile" element={<SchoolProfile />} />
