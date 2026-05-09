@@ -28,6 +28,7 @@ import ImplementationCalendar from "@/pages/ImplementationCalendar";
 import Renstra from "@/pages/Renstra";
 import KeyMessaging from "@/pages/KeyMessaging";
 import MarketingStrategy from "@/pages/MarketingStrategy";
+import WhatsAppMarketing from "@/pages/WhatsAppMarketing";
 import Konsultasi from "@/pages/Konsultasi";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
