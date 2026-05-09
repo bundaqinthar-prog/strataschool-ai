@@ -28,6 +28,7 @@ import ImplementationCalendar from "@/pages/ImplementationCalendar";
 import Renstra from "@/pages/Renstra";
 import KeyMessaging from "@/pages/KeyMessaging";
 import MarketingStrategy from "@/pages/MarketingStrategy";
+import WhatsAppMarketing from "@/pages/WhatsAppMarketing";
 import Konsultasi from "@/pages/Konsultasi";
 import Landing from "@/pages/Landing";
 import Login from "@/pages/Login";
@@ -80,6 +81,7 @@ const App = () => (
               <Route path="/renstra" element={<Renstra />} />
               <Route path="/key-messaging" element={<KeyMessaging />} />
               <Route path="/marketing-strategy" element={<MarketingStrategy />} />
+              <Route path="/wa-marketing" element={<WhatsAppMarketing />} />
               <Route path="/konsultasi" element={<Konsultasi />} />
               <Route path="/history" element={<ReportHistory />} />
               <Route path="/profile" element={<SchoolProfile />} />
