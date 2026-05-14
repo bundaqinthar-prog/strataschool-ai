@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { GraduationCap, LogIn } from "lucide-react";
+import { PasswordInput } from "@/components/PasswordInput";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -62,9 +63,8 @@ export default function Login() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Kata Sandi</Label>
-              <Input
+              <PasswordInput
                 id="password"
-                type="password"
                 placeholder="Masukkan kata sandi"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
