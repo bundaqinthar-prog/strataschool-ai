@@ -91,39 +91,23 @@ export default function Register() {
             </div>
             <CardTitle className="text-2xl">Pendaftaran Berhasil!</CardTitle>
             <CardDescription className="text-base leading-relaxed">
-              Akun Anda sudah aktif. Silakan lanjutkan ke langkah berikutnya.
+              Akun Anda berhasil dibuat dan saat ini menunggu persetujuan admin.
+              Begitu admin menyetujui, akun Anda otomatis aktif dan bisa langsung digunakan.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="rounded-lg border bg-muted/40 p-4 space-y-1">
-              <p className="text-sm font-semibold text-foreground">
-                <span className="text-primary">Langkah 1.</span> Lakukan Pembayaran Paket
-              </p>
+              <p className="text-sm font-semibold text-foreground">Langkah selanjutnya</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Klik tombol di bawah ini untuk diarahkan ke form pembelian. Setelah pembayaran selesai,
-                mohon konfirmasi kepada tim kami agar akun Anda segera diaktifkan penuh.
-              </p>
-            </div>
-            <div className="rounded-lg border bg-muted/40 p-4 space-y-1">
-              <p className="text-sm font-semibold text-foreground">
-                <span className="text-primary">Langkah 2.</span> Masuk ke Aplikasi
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Setelah akun disetujui, Anda bisa langsung masuk dengan email dan kata sandi yang didaftarkan.
+                Tim kami akan memverifikasi pendaftaran Anda. Anda akan diberitahu setelah
+                akun disetujui. Setelah itu, silakan masuk menggunakan email dan kata sandi
+                yang Anda daftarkan.
               </p>
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-3">
-            <a
-              href="https://lifecoach.myscalev.com/co-robot-konsultan-marketing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full"
-            >
-              <Button className="w-full">Lanjutkan ke Pembelian</Button>
-            </a>
+          <CardFooter>
             <Link to="/login" className="w-full">
-              <Button variant="outline" className="w-full">Masuk ke Aplikasi</Button>
+              <Button className="w-full">Kembali ke Halaman Masuk</Button>
             </Link>
           </CardFooter>
         </Card>
