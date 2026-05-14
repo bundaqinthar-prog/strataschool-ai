@@ -185,21 +185,6 @@ export default function Register() {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="paket">Paket Langganan <span className="text-destructive">*</span></Label>
-              <Select value={paket} onValueChange={setPaket} required>
-                <SelectTrigger id="paket">
-                  <SelectValue placeholder="Pilih durasi paket langganan" />
-                </SelectTrigger>
-                <SelectContent>
-                  {PAKET_OPTIONS.map((opt) => (
-                    <SelectItem key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
 
             <div className="space-y-2">
               <Label htmlFor="email">Email Sekolah / Pribadi <span className="text-destructive">*</span></Label>
