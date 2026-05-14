@@ -109,26 +109,25 @@ export default function Register() {
             </div>
             <CardTitle className="text-2xl">Pendaftaran Berhasil!</CardTitle>
             <CardDescription className="text-base leading-relaxed">
-              Akun Anda sudah berhasil dibuat. Silakan ikuti 2 langkah berikut untuk mengaktifkan akun:
+              Akun Anda sudah aktif. Silakan lanjutkan ke langkah berikutnya.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="rounded-lg border bg-muted/40 p-4 space-y-1">
               <p className="text-sm font-semibold text-foreground">
-                <span className="text-primary">Langkah 1.</span> Konfirmasi Email
+                <span className="text-primary">Langkah 1.</span> Lakukan Pembayaran Paket
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Cek kotak masuk email <strong>{email}</strong> dan klik tautan verifikasi yang kami kirim.
-                Jika tidak menemukan email, periksa folder <em>Spam</em> atau <em>Promosi</em>.
+                Klik tombol di bawah ini untuk diarahkan ke form pembelian. Setelah pembayaran selesai,
+                mohon konfirmasi kepada tim kami agar akun Anda segera diaktifkan penuh.
               </p>
             </div>
             <div className="rounded-lg border bg-muted/40 p-4 space-y-1">
               <p className="text-sm font-semibold text-foreground">
-                <span className="text-primary">Langkah 2.</span> Lakukan Pembayaran Paket
+                <span className="text-primary">Langkah 2.</span> Masuk ke Aplikasi
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Klik tombol di bawah ini untuk diarahkan ke form pembelian. Setelah pembayaran selesai,
-                mohon konfirmasi kepada tim kami agar akun Anda segera diaktifkan.
+                Setelah akun disetujui, Anda bisa langsung masuk dengan email dan kata sandi yang didaftarkan.
               </p>
             </div>
           </CardContent>
@@ -142,7 +141,7 @@ export default function Register() {
               <Button className="w-full">Lanjutkan ke Pembelian</Button>
             </a>
             <Link to="/login" className="w-full">
-              <Button variant="outline" className="w-full">Kembali ke halaman masuk</Button>
+              <Button variant="outline" className="w-full">Masuk ke Aplikasi</Button>
             </Link>
           </CardFooter>
         </Card>
