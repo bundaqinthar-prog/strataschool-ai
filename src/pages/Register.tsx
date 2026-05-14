@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { GraduationCap, UserPlus, CheckCircle, Loader2 } from "lucide-react";
+import { PasswordInput } from "@/components/PasswordInput";
 
 const JABATAN_OPTIONS = [
   "Kepala Sekolah",
@@ -185,9 +186,8 @@ export default function Register() {
 
             <div className="space-y-2">
               <Label htmlFor="password">Password <span className="text-destructive">*</span></Label>
-              <Input
+              <PasswordInput
                 id="password"
-                type="password"
                 placeholder="Minimal 6 karakter"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
